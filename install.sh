@@ -41,10 +41,6 @@ fi
 printf "\n${YELLOW}>> Should install brew and brew packages${NC}\n"
 confirm && . "$DOTFILES_DIR/scripts/brew.sh"
 
-# Brew cask, macOS apps.
-printf "\n${YELLOW}>> Should install brew cask and brew cask apps${NC}\n"
-confirm && . "$DOTFILES_DIR/scripts/brew-cask.sh"
-
 # Links the config folder to ~/.config
 # It's executed after the main brew install so fish can get its configuration
 # files.
