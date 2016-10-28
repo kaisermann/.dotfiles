@@ -1,0 +1,13 @@
+.DS_Store
+
+content/config/filezilla
+content/config/fisherman
+content/config/fish/fishd.*
+
+content/atom/*
+!content/atom/config.cson
+!content/atom/keymap.cson
+!content/atom/projects.cson
+!content/atom/snippets.cson
+!content/atom/styles.less
+!content/atom/init.coffee
