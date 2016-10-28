@@ -9,3 +9,6 @@ for file in $files; do
 
   ln -svf $DOTFILES_DIR/content/home/$file ~/$file
 done
+
+printf "${RED}>> Remember to edit your .gitconfig file ${NC}\n"
+open -e ~/.gitconfig
