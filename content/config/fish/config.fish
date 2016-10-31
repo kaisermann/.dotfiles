@@ -16,8 +16,7 @@ command -v yarn > /dev/null; and set -x PATH (yarn global bin) $PATH
 if test -d "/usr/local/opt/nvm"
   function nvm
     set -q NVM_DIR; or set -gx NVM_DIR ~/.nvm
-    set -g nvm_prefix $NVM_DIR
-    bass source $nvm_prefix/nvm.sh --no-use ';' nvm $argv
+    bass source (brew --prefix nvm)/nvm.sh --no-use ';' nvm $argv
   end
 end
 
