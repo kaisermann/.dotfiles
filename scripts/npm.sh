@@ -12,6 +12,7 @@ rf "command -v yarn > /dev/null; or npm install -g yarn;"
 packages=(
   bower
   bower-update
+  npm-check-updates
   diff-so-fancy
   express
   git-standup
