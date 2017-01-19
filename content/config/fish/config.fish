@@ -20,13 +20,16 @@ if test -d "/usr/local/opt/nvm"
   end
 end
 
+# Shell configuration
 set -x fish_greeting ''
 set -x EDITOR "vim"
 set -x BROWSER open
 set -x PS1 "\[\033[36m\]\u\[\033[m\]@\[\033[32m\]\h:\[\033[33;1m\]\w\[\033[m\]\$ "
-set -x CLICOLOR 1
-set -x LSCOLORS exFxBxDxCxegedabagacad
+set -gx CLICOLOR 1
+set -gx TERM xterm-256color
+set -gx LSCOLORS gxfxcxdxbxegedabagacad
 
+# Some alias
 alias ls "ls -GFh"
 alias showFiles 'defaults write com.apple.finder AppleShowAllFiles YES; killall Finder /System/Library/CoreServices/Finder.app'
 alias hideFiles 'defaults write com.apple.finder AppleShowAllFiles NO; killall Finder /System/Library/CoreServices/Finder.app'
