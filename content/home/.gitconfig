@@ -1,9 +1,9 @@
 [user]
-  name = ""
-  email = ""
+  name = "Christian Kaisermann"
+  email = "christian@kaisermann.me"
   
 [github]
-  user = ""
+  user = "kaisermann"
 
 [core]
   excludesfile = ~/.gitignore.global

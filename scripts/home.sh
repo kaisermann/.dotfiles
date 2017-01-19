@@ -1,4 +1,4 @@
-files=".gitconfig .gitignore.global .bash_profile .dircolors.256 .vimrc .vim"
+files=".gitconfig .gitignore.global .bash_profile .dircolors .vimrc .vim"
 
 printf "\n"
 for file in $files; do
@@ -10,5 +10,5 @@ for file in $files; do
   ln -svf $DOTFILES_DIR/content/home/$file ~/$file
 done
 
-printf "${RED}>> Remember to edit your .gitconfig file ${NC}\n"
+printf "${RED}>> Remember to edit the '.gitconfig' file ${NC}\n"
 open -e ~/.gitconfig

@@ -21,7 +21,6 @@ packages=(
   gulp-cli
   http-server
   less
-  mustache
   sass
   stylus
   webpack
