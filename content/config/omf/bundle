@@ -2,7 +2,6 @@ package argu
 package aws
 package bang-bang
 package brew
-package cd
 package config
 package dpaste
 package expand
