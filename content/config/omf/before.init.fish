@@ -7,9 +7,6 @@ end
 # Adds yarn's default global packages 'bin' path
 command -v yarn > /dev/null; and set -x PATH (yarn global bin) $PATH
 
-# Adds MAMP path
-[ -d /Applications/MAMP/Library/bin ]; and set -x PATH /Applications/MAMP/Library/bin $PATH
-
 # Adds coreutils path
 [ -d /usr/local/opt/coreutils/libexec/gnubin ]; and set -x PATH /usr/local/opt/coreutils/libexec/gnubin $PATH
 
