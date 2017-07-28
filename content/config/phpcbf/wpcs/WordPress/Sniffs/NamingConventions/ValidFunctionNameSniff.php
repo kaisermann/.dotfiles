@@ -22,6 +22,9 @@ if ( ! class_exists( 'PEAR_Sniffs_NamingConventions_ValidFunctionNameSniff', tru
  *
  * Last synced with parent class July 2016 up to commit 4fea2e651109e41066a81e22e004d851fb1287f6.
  * @link    https://github.com/squizlabs/PHP_CodeSniffer/blob/master/CodeSniffer/Standards/PEAR/Sniffs/NamingConventions/ValidFunctionNameSniff.php
+ *
+ * {@internal While this class extends the PEAR parent, it does not actually use the checks
+ * contained in the parent. It only uses the properties and the token registration from the parent.}}
  */
 class WordPress_Sniffs_NamingConventions_ValidFunctionNameSniff extends PEAR_Sniffs_NamingConventions_ValidFunctionNameSniff {
 
@@ -84,20 +87,15 @@ class WordPress_Sniffs_NamingConventions_ValidFunctionNameSniff extends PEAR_Sni
 		}
 
 		if ( strtolower( $functionName ) !== $functionName ) {
-			$suggested = preg_replace( '/([A-Z])/', '_$1', $functionName );
-			$suggested = strtolower( $suggested );
-			$suggested = str_replace( '__', '_', $suggested );
-			$suggested = trim( $suggested, '_' );
-
 			$error     = 'Function name "%s" is not in snake case format, try "%s"';
 			$errorData = array(
 				$functionName,
-				$suggested,
+				$this->get_name_suggestion( $functionName ),
 			);
 			$phpcsFile->addError( $error, $stackPtr, 'FunctionNameInvalid', $errorData );
 		}
 
-	} // end processTokenOutsideScope()
+	} // End processTokenOutsideScope().
 
 	/**
 	 * Processes the tokens within the scope.
@@ -117,7 +115,7 @@ class WordPress_Sniffs_NamingConventions_ValidFunctionNameSniff extends PEAR_Sni
 			return;
 		}
 
-		$className	= $phpcsFile->getDeclarationName( $currScope );
+		$className = $phpcsFile->getDeclarationName( $currScope );
 
 		// Ignore special functions.
 		if ( '' === ltrim( $methodName, '_' ) ) {
@@ -134,11 +132,11 @@ class WordPress_Sniffs_NamingConventions_ValidFunctionNameSniff extends PEAR_Sni
 			return;
 		}
 
-		$extended  = $phpcsFile->findExtendedClassName( $currScope );
-		$interface = $this->findImplementedInterfaceName( $currScope, $phpcsFile );
+		$extended   = $phpcsFile->findExtendedClassName( $currScope );
+		$interfaces = $phpcsFile->findImplementedInterfaceNames( $currScope );
 
 		// If this is a child class or interface implementation, it may have to use camelCase or double underscores.
-		if ( $extended || $interface ) {
+		if ( ! empty( $extended ) || ! empty( $interfaces ) ) {
 			return;
 		}
 
@@ -156,68 +154,29 @@ class WordPress_Sniffs_NamingConventions_ValidFunctionNameSniff extends PEAR_Sni
 
 		// Check for all lowercase.
 		if ( strtolower( $methodName ) !== $methodName ) {
-			$suggested = preg_replace( '/([A-Z])/', '_$1', $methodName );
-			$suggested = strtolower( $suggested );
-			$suggested = str_replace( '__', '_', $suggested );
-			$suggested = trim( $suggested, '_' );
-
 			$error     = 'Method name "%s" in class %s is not in snake case format, try "%s"';
 			$errorData = array(
 				$methodName,
 				$className,
-				$suggested,
+				$this->get_name_suggestion( $methodName ),
 			);
 			$phpcsFile->addError( $error, $stackPtr, 'MethodNameInvalid', $errorData );
 		}
 
-	} // end processTokenWithinScope()
+	} // End processTokenWithinScope().
 
 	/**
-	 * Returns the name of the interface that the specified class implements.
+	 * Transform the existing function/method name to one which complies with the naming conventions.
 	 *
-	 * Returns FALSE on error or if there is no implemented interface name.
-	 *
-	 * @since 0.5.0
-	 *
-	 * @param int                  $stackPtr  The stack position of the class.
-	 * @param PHP_CodeSniffer_File $phpcsFile The stack position of the class.
-	 *
-	 * @see PEAR_Sniffs_NamingConventions_ValidFunctionNameSniff::findExtendedClassName()
-	 *
-	 * @todo This needs to be upstreamed and made part of PHP_CodeSniffer_File.
-	 *
+	 * @param string $name The function/method name.
 	 * @return string
 	 */
-	public function findImplementedInterfaceName( $stackPtr, $phpcsFile ) {
-		$tokens = $phpcsFile->getTokens();
-
-		// Check for the existence of the token.
-		if ( ! isset( $tokens[ $stackPtr ] ) ) {
-			return false;
-		}
-		if ( T_CLASS !== $tokens[ $stackPtr ]['code'] ) {
-			return false;
-		}
-		if ( ! isset( $tokens[ $stackPtr ]['scope_closer'] ) ) {
-			return false;
-		}
-		$classOpenerIndex = $tokens[ $stackPtr ]['scope_opener'];
-		$extendsIndex     = $phpcsFile->findNext( T_IMPLEMENTS, $stackPtr, $classOpenerIndex );
-		if ( false === $extendsIndex ) {
-			return false;
-		}
-		$find = array(
-			T_NS_SEPARATOR,
-			T_STRING,
-			T_WHITESPACE,
-		);
-		$end  = $phpcsFile->findNext( $find, ( $extendsIndex + 1 ), ( $classOpenerIndex + 1 ), true );
-		$name = $phpcsFile->getTokensAsString( ( $extendsIndex + 1 ), ( $end - $extendsIndex - 1 ) );
-		$name = trim( $name );
-		if ( '' === $name ) {
-			return false;
-		}
-		return $name;
-	} // end findExtendedClassName()
+	protected function get_name_suggestion( $name ) {
+		$suggested = preg_replace( '/([A-Z])/', '_$1', $name );
+		$suggested = strtolower( $suggested );
+		$suggested = str_replace( '__', '_', $suggested );
+		$suggested = trim( $suggested, '_' );
+		return $suggested;
+	}
 
 } // End class.
