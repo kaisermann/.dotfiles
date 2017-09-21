@@ -11,6 +11,7 @@
   filemode = false
   trustctime = false
   autocrlf = input
+  ignorecase = false
 
 [alias]
   st = status
