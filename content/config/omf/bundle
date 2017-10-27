@@ -19,7 +19,6 @@ package omf
 package osx
 package spark
 package ssh-term-helper
-package thefuck
 package weather
 package wttr
 package z
