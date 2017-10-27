@@ -9,10 +9,3 @@ end
 
 # Adds coreutils path
 [ -d /usr/local/opt/coreutils/libexec/gnubin ]; and set -x PATH /usr/local/opt/coreutils/libexec/gnubin $PATH
-
-# Adds NVM path
-if test -d "/usr/local/opt/nvm"
-  set -q NVM_DIR; or set -gx NVM_DIR ~/.nvm
-end
-
-set -g Z_SCRIPT_PATH /usr/local/etc/profile.d/z.sh
