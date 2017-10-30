@@ -29,21 +29,11 @@ rf () {
 command -v rmtrash > /dev/null && RM_CMD="rmtrash"
 printf "${YELLOW}RM command: $RM_CMD${NC}\n"
 
-# Update dotfiles itself first
-[ -d "$DOTFILES_DIR/.git" ] && [ -d "~/.ssh" ] && git --work-tree="$DOTFILES_DIR" --git-dir="$DOTFILES_DIR/.git" pull origin master
-
-if [ ! -d ~/.dotfiles.bk ]; then
-  printf "\n${YELLOW}>> Creating .dotfiles.bk directory${NC}\n"
-  mkdir ~/.dotfiles.bk
-fi
-
 # Package managers & packages
 printf "\n${YELLOW}>> Should install brew and brew packages${NC}\n"
 confirm && . "$DOTFILES_DIR/scripts/brew.sh"
 
 # Links the config folder to ~/.config
-# It's executed after the main brew install so fish can get its configuration
-# files.
 printf "\n${YELLOW}>> Should link config folder to ~/.config${NC}\n"
 confirm && . "$DOTFILES_DIR/scripts/config.sh"
 
@@ -57,7 +47,7 @@ confirm && . "$DOTFILES_DIR/scripts/npm.sh"
 printf "\n${YELLOW}>> Should link home files (bash_profile, vimrc, etc)${NC}\n"
 confirm && . "$DOTFILES_DIR/scripts/home.sh"
 
-printf "\n${YELLOW}>> Should run post installation setup${NC}\n"
+printf "\n${YELLOW}>> Should run dev post-installation setup (pip, wp-cli, etc)${NC}\n"
 confirm && . "$DOTFILES_DIR/scripts/post.sh"
 
 printf "${GREEN}--- DOTFILES - THE END ---${NC}\n\n"

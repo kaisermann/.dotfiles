@@ -5,7 +5,7 @@ for file in $files; do
   printf "${GREEN}>> Linking '$file' file ${NC}\n"
 
   [ -L ~/$file ] && unlink ~/$file
-  [ -f ~/$file ] && mv ~/$file ~/.myfiles.bk/
+  [ -f ~/$file ] && ${RM_CMD} ~/$file
 
   ln -svf $DOTFILES_DIR/content/home/$file ~/$file
 done

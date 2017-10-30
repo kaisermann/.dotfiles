@@ -1,5 +1,4 @@
 # Install Homebrew
-
 command -v brew > /dev/null || ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
 brew tap homebrew/versions
@@ -14,8 +13,10 @@ apps=(
   awscli
   composer
   coreutils
+  csshx
   dockutil
   fish
+  gettext
   git
   grep --with-default-names
   imagemagick
@@ -27,7 +28,6 @@ apps=(
   python
   shellcheck
   ssh-copy-id
-  thefuck
   tree
   vim
   wget
