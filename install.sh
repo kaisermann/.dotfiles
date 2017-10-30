@@ -41,7 +41,7 @@ printf "\n${YELLOW}>> Should configure fish${NC}\n"
 confirm && . "$DOTFILES_DIR/scripts/fish.sh"
 
 # Install node and npm packages (nvm and npm)
-printf "\n${YELLOW}>> Should install package managers, npm and global packages${NC}\n"
+printf "\n${YELLOW}>> Should install Node, NPM and global packages?${NC}\n"
 confirm && . "$DOTFILES_DIR/scripts/npm.sh"
 
 printf "\n${YELLOW}>> Should link home files (bash_profile, vimrc, etc)${NC}\n"

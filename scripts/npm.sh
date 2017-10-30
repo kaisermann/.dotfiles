@@ -1,9 +1,8 @@
 printf "\n${YELLOW}>> Should install node?${NC}\n"
-confirm && brew install node
+confirm && nvm install stable
 
 # Globally install with npm
 NPM_PACKAGES_I_CMD="npm install -g"
-
 
 printf "\n${GREEN}>> Installing node packages${NC}\n"
 

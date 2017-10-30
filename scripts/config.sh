@@ -1,4 +1,4 @@
-dirs="fish omf thefuck phpcbf"
+dirs="fish omf phpcbf"
 
 [ ! -d ~/.config/ ] && mkdir ~/.config/
 
