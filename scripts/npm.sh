@@ -1,5 +1,5 @@
 printf "\n${YELLOW}>> Should install node?${NC}\n"
-confirm && nvm install stable
+confirm && rf "nvm install stable"
 
 # Globally install with npm
 NPM_PACKAGES_I_CMD="npm install -g"

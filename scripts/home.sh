@@ -1,4 +1,4 @@
-files=".gitconfig .gitignore.global .bash_profile .dircolors .vimrc .vim"
+files=".gitconfig .gitignore.global .bash_profile .bashrc .dircolors .vimrc .vim"
 
 printf "\n"
 for file in $files; do
