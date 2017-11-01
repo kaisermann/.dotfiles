@@ -5,6 +5,7 @@ package brew
 package composer
 package config
 package expand
+package foreign-env
 package hash
 package https://github.com/edc/bass
 package keychain
