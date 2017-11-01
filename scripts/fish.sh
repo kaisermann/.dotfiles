@@ -9,4 +9,4 @@ fi
 printf "\n${YELLOW}>> Will install oh-my-fish${NC}\n"
 curl -L http://get.oh-my.fish -o $DOTFILES_DIR/oh-my-fish.installer.fish
 fish < $DOTFILES_DIR/oh-my-fish.installer.fish
-${RM_CMD} $DOTFILES_DIR/oh-my-fish.installer.fish
+rm -rf $DOTFILES_DIR/oh-my-fish.installer.fish

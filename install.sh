@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-export DOTFILES_DIR RM_CMD YELLOW GREEN BLUE RED NC
+export DOTFILES_DIR YELLOW GREEN BLUE RED NC
 
 YELLOW='\033[1;33m'
 RED='\033[0;31m'
@@ -7,7 +7,6 @@ BLUE='\033[0;34m'
 GREEN='\033[0;32m'
 NC='\033[0m'
 DOTFILES_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
-RM_CMD="rm -rf"
 ZIP_CMD="zip -r"
 
 confirm () {
@@ -25,9 +24,6 @@ confirm () {
 rf () {
   fish -c "$1"
 }
-
-command -v rmtrash > /dev/null && RM_CMD="rmtrash"
-printf "${YELLOW}RM command: $RM_CMD${NC}\n"
 
 # Package managers & packages
 printf "\n${YELLOW}>> Should install brew and brew packages${NC}\n"
