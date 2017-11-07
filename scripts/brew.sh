@@ -14,6 +14,7 @@ apps=(
   csshx
   dockutil
   exiftool
+  ffmpeg
   fish
   gettext
   git
