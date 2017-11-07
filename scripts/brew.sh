@@ -14,7 +14,7 @@ apps=(
   csshx
   dockutil
   exiftool
-  ffmpeg
+  ffmpeg --with-fdk-aac --with-ffplay --with-freetype --with-libass --with-libquvi --with-libvorbis --with-libvpx --with-opus --with-x265
   fish
   gettext
   git
