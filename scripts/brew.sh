@@ -13,6 +13,7 @@ apps=(
   coreutils
   csshx
   dockutil
+  exiftool
   fish
   gettext
   git
