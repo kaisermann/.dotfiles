@@ -27,6 +27,7 @@
   ll = log --pretty=oneline --graph --abbrev-commit
   lm = log --pretty=format:'* %s (%h)'
   lg = log -p
+  lls = log --pretty=oneline --graph --abbrev-commit --stat
   g = grep --break --heading --line-number
   amend = commit --amend --reuse-message=HEAD
   contrib = shortlog --summary --numbered
