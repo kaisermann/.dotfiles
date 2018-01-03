@@ -1,18 +1,4 @@
 %Image::ExifTool::UserDefined::Shortcuts = (
-	MyDates => [
-		'DateTimeOriginal',
-		'CreateDate ',
-		'ModifyDate',
-		'-ExifIFD:DateTimeOriginal',
-		'QuickTime:CreateDate',
-		'QuickTime:ModifyDate',
-		'Track1:MediaModifyDate',
-		'Track1:MediaCreateDate',
-		'Track1:TrackModifyDate',
-		'Track1:TrackCreateDate',
-		'Track2:MediaModifyDate',
-		'Track2:MediaCreateDate',
-		'Track2:TrackModifyDate',
-		'Track2:TrackCreateDate'
-	]
+	PhotoDates => ['DateTimeOriginal','CreateDate ','ModifyDate','ExifIFD:DateTimeOriginal','ExifIFD:CreateDate','QuickTime:CreateDate','QuickTime:ModifyDate'],
+	VideoDates => ['CreateDate','ModifyDate','MediaModifyDate','MediaCreateDate','QuickTime:CreateDate','QuickTime:ModifyDate','Track1:MediaModifyDate','Track1:MediaCreateDate','Track1:TrackModifyDate','Track1:TrackCreateDate','Track2:MediaModifyDate','Track2:MediaCreateDate','Track2:TrackModifyDate','Track2:TrackCreateDate']
 );
