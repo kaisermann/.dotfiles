@@ -9,6 +9,7 @@ package foreign-env
 package hash
 package https://github.com/edc/bass
 package keychain
+package node-binpath
 package nvm
 package omf
 package osx
