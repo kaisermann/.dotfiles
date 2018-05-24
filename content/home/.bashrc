@@ -10,3 +10,5 @@ source $(brew --prefix nvm)/nvm.sh
 
 # For z
 source /usr/local/etc/profile.d/z.sh
+export PATH=$PATH:/home/kaisermann/.postools
+alias possh="ssh -oStrictHostKeyChecking=no MAINAPP@127.0.0.1 -p 51000"
