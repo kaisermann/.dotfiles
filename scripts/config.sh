@@ -7,6 +7,6 @@ paths=(
 
 for path in ${paths[*]}; do
   mkdir -p ~/.config/$(dirname $path)
-  ln -svf $(dirname $(pwd))/content/config/$path ~/.config/
+  ln -svf $(readlink -f ../content/config)/$path ~/.config/
 done
 

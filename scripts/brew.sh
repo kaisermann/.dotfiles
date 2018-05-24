@@ -1,3 +1,4 @@
+#!/bin/bash
 # Install Homebrew
 command -v brew > /dev/null || ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
@@ -36,4 +37,6 @@ apps=(
   z
 )
 
-brew install "${apps[@]}"
+for app in ${apps[*]}; do
+  brew cask install $app
+done
