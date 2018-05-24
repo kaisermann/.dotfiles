@@ -1,3 +1,4 @@
+package argu
 package aws
 package bang-bang
 package brew
@@ -5,9 +6,7 @@ package composer
 package config
 package expand
 package foreign-env
-package hash
 package https://github.com/edc/bass
-package keychain
 package node-binpath
 package nvm
 package omf
