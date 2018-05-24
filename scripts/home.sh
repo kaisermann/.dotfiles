@@ -12,7 +12,5 @@ paths=(
 
 for path in ${paths[*]}; do
   mkdir -p ~/$(dirname $path)
-  ln -svf $(readlink -f ../content/home)/$path ~/
+  ln -svf $(readlink -f ../content/home)/$path ~/$(dirname $path)/
 done
-
-open -e ~/.gitconfig
