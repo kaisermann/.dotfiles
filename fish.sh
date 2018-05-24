@@ -18,14 +18,14 @@ fish -c '
 
 # Files to link to the .config directory
 paths=(
-  fish/init.fish
+  fish/config.fish
   omf/pkg/til
   omf/bundle
 )
 
 for path in ${paths[*]}; do
   mkdir -p ~/.config/$(dirname $path)
-  ln -svf $(readlink -f ../content/fish)/$path ~/.config/$(dirname $path)/
+  ln -svf $(readlink -f ./content/fish)/$path ~/.config/$(dirname $path)/
 done
 
 # Install omf dependencies listed on 'bundle'
