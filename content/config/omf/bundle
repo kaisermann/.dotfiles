@@ -1,4 +1,3 @@
-package argu
 package aws
 package bang-bang
 package brew
@@ -9,11 +8,9 @@ package foreign-env
 package hash
 package https://github.com/edc/bass
 package keychain
+package node-binpath
 package nvm
 package omf
 package osx
-package spark
 package ssh-term-helper
-package weather
-package wttr
 package z

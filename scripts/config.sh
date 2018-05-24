@@ -1,13 +1,12 @@
-dirs="omf phpcbf"
+#!/bin/bash
+paths=(
+  fish/init.fish
+  omf/pkg/til
+  omf/bundle
+)
 
-[ ! -d ~/.config/ ] && mkdir ~/.config/
-
-printf "\n"
-for dir in $dirs; do
-  printf "${GREEN}>> Linking config '$dir' directory ${NC}\n"
-
-  [ -L ~/.config/$dir ] && unlink ~/.config/$dir
-  [ -d ~/.config/$dir ] && rm -rf ~/.config/$dir
-
-	ln -svf $DOTFILES_DIR/content/config/$dir ~/.config/$dir
+for path in ${paths[*]}; do
+  mkdir -p ~/.config/$(dirname $path)
+  ln -svf $(dirname $(pwd))/content/config/$path ~/.config/
 done
+

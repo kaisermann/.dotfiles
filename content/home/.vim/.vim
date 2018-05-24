@@ -1,0 +1,1 @@
+/Users/kaisermann/.dotfiles/content/home/.vim
