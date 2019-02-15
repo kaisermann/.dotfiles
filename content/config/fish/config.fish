@@ -12,10 +12,15 @@ eval (dircolors -c ~/.dircolors | sed 's/>&\/dev\/null$//')
 
 # Adds all relevant paths
 for p in /opt/bin /opt/local/bin ~/.config/fish/bin /usr/bin /usr/local/bin
-	if test -d $p
-		set -x PATH $p $PATH
-	end
+    if test -d $p
+        set -x PATH $p $PATH
+    end
 end
 
+# fnm
+set PATH $HOME/.fnm $PATH
+eval (fnm env --fish)
+
 # Adds yarn's default global packages 'bin' path
-command -v yarn > /dev/null; and set -x PATH (yarn global bin) $PATH
+command -v yarn >/dev/null
+and set -x PATH (yarn global bin) $PATH
