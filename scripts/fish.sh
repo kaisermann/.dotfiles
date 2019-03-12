@@ -11,8 +11,5 @@ fi
 # fish < /tmp/oh-my-fish.installer.fish
 # rm -rf /tmp/oh-my-fish.installer.fish
 
-# Install fisher
-curl https://git.io/fisher --create-dirs -sLo ~/.config/fish/functions/fisher.fish
-
 # Install fnm
 curl https://raw.githubusercontent.com/Schniz/fnm/master/.ci/install.sh | bash

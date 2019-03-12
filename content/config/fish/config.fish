@@ -4,11 +4,19 @@ set -x EDITOR 'vim'
 set -x BROWSER open
 set -gx CLICOLOR 1
 
+
 # Some alias
 alias ls 'ls -GFh --color=auto'
 
 # Dircolors
 eval (dircolors -c ~/.dircolors | sed 's/>&\/dev\/null$//')
+
+if not functions -q fisher
+    set -q XDG_CONFIG_HOME
+    or set XDG_CONFIG_HOME ~/.config
+    curl https://git.io/fisher --create-dirs -sLo $XDG_CONFIG_HOME/fish/functions/fisher.fish
+    fish -c fisher
+end
 
 # Adds all relevant paths
 for p in /opt/bin /opt/local/bin ~/.config/fish/bin /usr/bin /usr/local/bin
