@@ -1,7 +1,8 @@
 #!/bin/bash
 paths=(
-  fish/config.fish
   fish/fishfile
+  fish/config.fish
+  fish/path.fish
   # omf/pkg/til
   # omf/bundle
 )

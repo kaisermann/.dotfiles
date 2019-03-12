@@ -4,38 +4,22 @@ set -x EDITOR 'vim'
 set -x BROWSER open
 set -gx CLICOLOR 1
 
-
 # Some alias
 alias ls 'ls -GFh --color=auto'
 
 # Dircolors
 eval (dircolors -c ~/.dircolors | sed 's/>&\/dev\/null$//')
 
-if not functions -q fisher
-    set -q XDG_CONFIG_HOME
-    or set XDG_CONFIG_HOME ~/.config
-    curl https://git.io/fisher --create-dirs -sLo $XDG_CONFIG_HOME/fish/functions/fisher.fish
-    fish -c fisher
-end
+set DIR (readlink -f (dirname (status -f)); and pwd)
 
-# Adds all relevant paths
-for p in /opt/bin /opt/local/bin ~/.config/fish/bin /usr/bin /usr/local/bin
-    if test -d $p
-        set -x PATH $p $PATH
-    end
-end
+source $DIR/path.fish
 
-# fnm
-set PATH $HOME/.fnm $PATH
-fnm env --multi --use-on-cd | source
+set SPACEFISH_PROMPT_ORDER time user dir host char
+set SPACEFISH_RPROMPT_ORDER git package node docker ruby golang php rust haskell julia aws conda pyenv kubecontext exec_time battery jobs exit_code
 
-# Rust
-set PATH $HOME/.cargo/bin $PATH
-
-# Adds yarn's default global packages 'bin' path
-command -v yarn >/dev/null
-and set -x PATH (yarn global bin) $PATH
-
-# Stone
-set -x PATH /home/kaisermann/.postools $PATH
-set -x MAMBA /home/kaisermann/Projects/Stone/pos-mamba
+set SPACEFISH_PROMPT_ADD_NEWLINE true
+set SPACEFISH_PROMPT_SEPARATE_LINE true
+set SPACEFISH_EXIT_CODE_SHOW true
+set SPACEFISH_PACKAGE_SYMBOL ''
+set SPACEFISH_GIT_BRANCH_COLOR 'yellow'
+set SPACEFISH_GIT_STATUS_COLOR 'cyan'
