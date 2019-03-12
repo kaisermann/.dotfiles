@@ -3,6 +3,7 @@ paths=(
   fish/fishfile
   fish/config.fish
   fish/path.fish
+  fish/conf.d/til.fish
   # omf/pkg/til
   # omf/bundle
 )
