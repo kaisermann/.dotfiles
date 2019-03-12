@@ -22,23 +22,19 @@
   co = checkout
   cr = clone --recursive
   df = diff --word-diff
-  unstage = reset --hard HEAD
   l = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
   ll = log --pretty=oneline --graph --abbrev-commit
-  lm = log --pretty=format:'* %s (%h)'
-  lg = log -p
   lls = log --pretty=oneline --graph --abbrev-commit --stat
   g = grep --break --heading --line-number
   amend = commit --amend --reuse-message=HEAD
   contrib = shortlog --summary --numbered
   show-ignored = "! git clean -ndX | perl -pe 's/Would remove/Ignored:/'"
-  ld = "!sh -c \"git log --since '${1:-1} days ago' --oneline --author $(git config user.email)\" -"
-  pr = "!f() { git fetch -fu ${2:-origin} refs/pull/$1/head:pr/$1 && git checkout pr/$1; }; f"
+  br = for-each-ref --sort=-committerdate refs/heads/ refs/remotes/origin/ --format='%(HEAD) %(color:yellow)%(refname:short)%(color:reset) - %(color:red)%(objectname:short)%(color:reset) - %(contents:subject) - %(authorname) (%(color:green)%(committerdate:relative)%(color:reset))' -
   foda-se = reset --hard HEAD
 
 [pager]
-	diff = diff-so-fancy | less --tabs=4 -RFX
-	show = diff-so-fancy | less --tabs=4 -RFX
+	diff = diff-so-fancy | less --tabs=2 -RFX
+	show = diff-so-fancy | less --tabs=2 -RFX
 
 [color]
   ui = auto
@@ -106,7 +102,3 @@
 [mergetool "Kaleidoscope"]
   cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
   trustExitCode = true
-
-[mergetool "sourcetree"]
-	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-	trustExitCode = true
