@@ -1,8 +1,9 @@
 #!/bin/bash
 paths=(
   fish/config.fish
-  omf/pkg/til
-  omf/bundle
+  fish/fishfile
+  # omf/pkg/til
+  # omf/bundle
 )
 
 for path in ${paths[*]}; do

@@ -4,3 +4,5 @@ export LSCOLORS=gxfxbEaEBxxEhEhBaDaCaD
 export PATH="/usr/local/sbin:$PATH"
 
 alias ls='ls -GFh'
+
+export PATH=$PATH:/home/kaisermann/.postools

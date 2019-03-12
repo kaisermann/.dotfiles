@@ -7,9 +7,12 @@ if [[ ${SHELL} != *"fish"* ]]; then
 fi
 
 # Install oh my fish
-curl -L http://get.oh-my.fish -o /tmp/oh-my-fish.installer.fish
-fish < /tmp/oh-my-fish.installer.fish
-rm -rf /tmp/oh-my-fish.installer.fish
+# curl -L http://get.oh-my.fish -o /tmp/oh-my-fish.installer.fish
+# fish < /tmp/oh-my-fish.installer.fish
+# rm -rf /tmp/oh-my-fish.installer.fish
+
+# Install fisher
+curl https://git.io/fisher --create-dirs -sLo ~/.config/fish/functions/fisher.fish
 
 # Install fnm
 curl https://raw.githubusercontent.com/Schniz/fnm/master/.ci/install.sh | bash

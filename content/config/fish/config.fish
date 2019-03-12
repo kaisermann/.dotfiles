@@ -27,3 +27,7 @@ set PATH $HOME/.cargo/bin $PATH
 # Adds yarn's default global packages 'bin' path
 command -v yarn >/dev/null
 and set -x PATH (yarn global bin) $PATH
+
+# Stone
+set -x PATH /home/kaisermann/.postools $PATH
+set -x MAMBA /home/kaisermann/Projects/Stone/pos-mamba
