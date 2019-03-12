@@ -19,7 +19,10 @@ end
 
 # fnm
 set PATH $HOME/.fnm $PATH
-eval (fnm env --fish)
+fnm env --multi --use-on-cd | source
+
+# Rust
+set PATH $HOME/.cargo/bin $PATH
 
 # Adds yarn's default global packages 'bin' path
 command -v yarn >/dev/null

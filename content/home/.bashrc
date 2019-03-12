@@ -4,9 +4,3 @@ export LSCOLORS=gxfxbEaEBxxEhEhBaDaCaD
 export PATH="/usr/local/sbin:$PATH"
 
 alias ls='ls -GFh'
-
-# For nvm
-source $(brew --prefix nvm)/nvm.sh
-
-# For z
-source /usr/local/etc/profile.d/z.sh
