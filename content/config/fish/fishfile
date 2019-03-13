@@ -1,1 +1,14 @@
-/home/kaisermann/.config/fish/fishfile
+jethrokuan/z
+edc/bass
+laughedelic/pisces
+oh-my-fish/plugin-bang-bang
+oh-my-fish/plugin-ssh
+oh-my-fish/plugin-node-binpath
+oh-my-fish/plugin-thefuck
+oh-my-fish/plugin-expand
+fishpkg/fish-pwd-info
+fishpkg/fish-humanize-duration
+fishpkg/fish-pwd-is-home
+fishpkg/fish-last-job-id
+fishpkg/fish-host-info
+matchai/spacefish
