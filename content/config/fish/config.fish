@@ -28,9 +28,16 @@ source $DIR/path.fish
 
 # Spacefish configuration
 set SPACEFISH_PROMPT_ORDER time user dir host git package node docker ruby golang php rust haskell julia aws conda pyenv kubecontext exec_time battery jobs line_sep exit_code char
+
 set SPACEFISH_PROMPT_ADD_NEWLINE true
 set SPACEFISH_PROMPT_SEPARATE_LINE true
+
 set SPACEFISH_EXIT_CODE_SHOW true
-set SPACEFISH_PACKAGE_SYMBOL '📦 '
-set SPACEFISH_GIT_BRANCH_COLOR 'yellow'
+
+set SPACEFISH_DIR_TRUNC_REPO false
+set SPACEFISH_DIR_TRUNC 3
+
 set SPACEFISH_GIT_STATUS_COLOR 'cyan'
+set SPACEFISH_GIT_BRANCH_COLOR 'yellow'
+
+set SPACEFISH_PACKAGE_SYMBOL '📦 '
