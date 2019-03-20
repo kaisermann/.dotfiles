@@ -16,13 +16,13 @@ set -x LESS_TERMCAP_ue (printf "\033[0m")
 set -x LESS_TERMCAP_us (printf "\033[01;32m")
 
 # Some alias
-alias ls 'ls -GFh --color=auto'
+alias ls 'ls -GFh'
 alias grep 'grep --color=always'
 
 # Dircolors (fish's ls already does it)
 # eval (dircolors -c ~/.dircolors | sed 's/>&\/dev\/null$//')
 
-set DIR (readlink -f (dirname (status -f)); and pwd)
+set DIR (realpath (dirname (status -f)); and pwd)
 
 source $DIR/path.fish
 

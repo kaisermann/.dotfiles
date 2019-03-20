@@ -10,7 +10,7 @@ set PATH $HOME/.fnm $PATH
 fnm env --multi --use-on-cd | source
 
 # Rust
-set PATH $HOME/.cargo/bin $PATH
+test -d $HOME/.cargo/bin; and set -x PATH $HOME/.cargo/bin $PATH
 
 # Adds yarn's default global packages 'bin' path
 command -v yarn >/dev/null

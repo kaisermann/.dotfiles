@@ -12,4 +12,4 @@ fi
 # rm -rf /tmp/oh-my-fish.installer.fish
 
 # Install fnm
-curl https://raw.githubusercontent.com/Schniz/fnm/master/.ci/install.sh | bash
+curl https://raw.githubusercontent.com/Schniz/fnm/master/.ci/install.sh | bash -s -- --skip-shell
