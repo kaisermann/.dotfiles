@@ -1,16 +1,22 @@
 # Adds all relevant paths
-for p in /opt/bin /opt/local/bin ~/.config/fish/bin /usr/bin /usr/local/bin
+set paths \
+    /opt/bin /opt/local/bin \
+    ~/.config/fish/bin \
+    /usr/bin \
+    /usr/local/bin \
+    /usr/local/sbin \
+    $HOME/.fnm \
+    $HOME/.cargo/bin
+
+for p in $paths
     if test -d $p
+        and not string match -q $p $PATH
         set -x PATH $p $PATH
     end
 end
 
-# fnm
-set PATH $HOME/.fnm $PATH
+# fnm bootstrap
 fnm env --multi --use-on-cd | source
-
-# Rust
-test -d $HOME/.cargo/bin; and set -x PATH $HOME/.cargo/bin $PATH
 
 # Adds yarn's default global packages 'bin' path
 command -v yarn >/dev/null
