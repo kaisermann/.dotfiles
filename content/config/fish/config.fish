@@ -33,6 +33,10 @@ set DIR (realpath (dirname (status -f)); and pwd)
 
 source $DIR/path.fish
 
+# Start thefuck
+command -v thefuck >/dev/null
+and thefuck --alias | source
+
 # Spacefish configuration
 set SPACEFISH_PROMPT_ORDER time user dir host git package node docker ruby golang php rust haskell julia aws conda pyenv kubecontext exec_time battery jobs line_sep exit_code char
 
