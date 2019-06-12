@@ -32,7 +32,7 @@
   show-ignored = "! git clean -ndX | perl -pe 's/Would remove/Ignored:/'"
   br = for-each-ref --sort=-committerdate refs/heads/ refs/remotes/origin/ --format='%(HEAD) %(color:yellow)%(refname:short)%(color:reset) - %(color:red)%(objectname:short)%(color:reset) - %(contents:subject) - %(authorname) (%(color:green)%(committerdate:relative)%(color:reset))' -
   foda-se = reset --hard HEAD
-
+  fml = !git fetch origin && git reset --hard origin/$(git rev-parse --abbrev-ref HEAD)
   changelog = log --oneline --abbrev-commit --no-merges
 	graph = log --graph --abbrev-commit --decorate --date=relative --format=format:'%C(yellow)%h%C(reset) %s%C(reset) %C(dim white)<%an>%C(reset) %C(bold blue)%ar%C(reset)%C(bold yellow)%d%C(reset)'
 	unstage = reset HEAD --
