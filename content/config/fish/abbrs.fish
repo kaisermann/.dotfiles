@@ -1,3 +1,4 @@
+abbr ls ls -GFh
 abbr ll ls -lhA
 
 # vtex related

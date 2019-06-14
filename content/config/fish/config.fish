@@ -22,10 +22,6 @@ set -x LESS_TERMCAP_so (printf "\033[01;44;33m")
 set -x LESS_TERMCAP_ue (printf "\033[0m")
 set -x LESS_TERMCAP_us (printf "\033[01;32m")
 
-# Some alias
-alias ls 'ls -GFh'
-alias grep 'grep --color=always'
-
 # Dircolors (fish's ls already does it)
 # eval (dircolors -c ~/.dircolors | sed 's/>&\/dev\/null$//')
 
