@@ -1,6 +1,7 @@
 #!/bin/bash
 paths=(
   fish/fishfile
+  fish/abbrs.fish
   fish/config.fish
   fish/path.fish
   fish/conf.d/til.fish

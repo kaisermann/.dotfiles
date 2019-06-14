@@ -32,6 +32,7 @@ alias grep 'grep --color=always'
 set DIR (realpath (dirname (status -f)); and pwd)
 
 source $DIR/path.fish
+source $DIR/abbrs.fish
 
 # Start thefuck
 command -v thefuck >/dev/null
