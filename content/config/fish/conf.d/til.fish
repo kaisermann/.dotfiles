@@ -91,9 +91,14 @@ function til::exit_code
     end
 end
 
+set vtex_json_path $HOME/.config/configstore/vtex.json
 function vtex::prompt
+    if not test -f $vtex_json_path
+        return
+    end
+
     function parse_vtex_json
-        cat $HOME/.config/configstore/vtex.json | grep $argv[1] | sed -n 's/.*\:.*\"\(.*\)\".*/\1/p'
+        cat $vtex_json_path | grep $argv[1] | sed -n 's/.*\:.*\"\(.*\)\".*/\1/p'
     end
 
     function vtex::get_account
