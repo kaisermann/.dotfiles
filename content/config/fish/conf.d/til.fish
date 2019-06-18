@@ -105,10 +105,6 @@ function vtex::prompt
         parse_vtex_json account
     end
 
-    function vtex::get_env
-        parse_vtex_json env
-    end
-
     function vtex::get_workspace
         parse_vtex_json workspace
     end
@@ -116,7 +112,7 @@ function vtex::prompt
     if test (vtex::get_workspace 2> /dev/null)
         echo -sn '['
         set_color magenta
-        echo -sn (vtex::get_env):(vtex::get_account)/(vtex::get_workspace)
+        echo -sn (vtex::get_account)/(vtex::get_workspace)
         set_color normal
         echo -sn ']'
     end
