@@ -102,11 +102,11 @@ function vtex::prompt
     end
 
     function vtex::get_account
-        parse_vtex_json account
+        parse_vtex_json "\"account\""
     end
 
     function vtex::get_workspace
-        parse_vtex_json workspace
+        parse_vtex_json "\"workspace\""
     end
 
     if test (vtex::get_workspace 2> /dev/null)
