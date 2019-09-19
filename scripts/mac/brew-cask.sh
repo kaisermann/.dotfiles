@@ -6,9 +6,7 @@ brew tap caskroom/versions
 
 # Install packages
 apps=(
-  alfred
   appcleaner
-  atom
   diskwave
   dropbox
   firefox
@@ -17,16 +15,12 @@ apps=(
   handbrake
   imageoptim
   istat-menus
-  itau
   licecap
   mamp
   osxfuse
-  sequel-pro
-  sublime-text
   teamviewer
   telegram-desktop
   the-unarchiver
-  transmit
   utorrent
   veracrypt
   visual-studio-code
