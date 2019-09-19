@@ -6,7 +6,8 @@ set paths \
     /usr/local/bin \
     /usr/local/sbin \
     $HOME/.fnm \
-    $HOME/.cargo/bin
+    $HOME/.cargo/bin \
+    /usr/local/opt/findutils/libexec/gnubin
 
 for p in $paths
     if test -d $p
