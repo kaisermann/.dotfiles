@@ -104,14 +104,11 @@
   renames = copies
   tool = Kaleidoscope
 
-[difftool "Kaleidoscope"]
-  cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
-
-[difftool "sourcetree"]
-  cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-  path =
-
 [url "git@github.com:vtex-apps/"]
     insteadOf = va:
+
 [url "git@github.com:vtex/"]
     insteadOf = v:
+
+[url "git@github.com:kaisermann/"]
+    insteadOf = kaisermann:
