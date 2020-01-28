@@ -14,41 +14,41 @@
   ignorecase = false
 
 [alias]
+  ci = commit
+  cm = "!f() { git commit -m \"$*\"; }; f"
+  amend = commit --amend --reuse-message=HEAD
+  uncommit = reset --soft HEAD~
   st = status
   sts = status -sb
   stl = ls-files -m -o --exclude-standard
-  ci = commit
   br = branch
   co = checkout
   cr = clone --recursive
   df = diff --word-diff
   dfc = diff --word-diff --cached
   l = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
-  ll = log --pretty=oneline --graph --abbrev-commit
-  lls = log --pretty=oneline --graph --abbrev-commit --stat
+  ls = log --pretty=oneline --graph --abbrev-commit --stat
   g = grep --break --heading --line-number
-  amend = commit --amend --reuse-message=HEAD
   contrib = shortlog --summary --numbered
   show-ignored = "! git clean -ndX | perl -pe 's/Would remove/Ignored:/'"
-  br = for-each-ref --sort=-committerdate refs/heads/ refs/remotes/origin/ --format='%(HEAD) %(color:yellow)%(refname:short)%(color:reset) - %(color:red)%(objectname:short)%(color:reset) - %(contents:subject) - %(authorname) (%(color:green)%(committerdate:relative)%(color:reset))' -
   changelog = log --oneline --abbrev-commit --no-merges
-	graph = log --graph --abbrev-commit --decorate --date=relative --format=format:'%C(yellow)%h%C(reset) %s%C(reset) %C(dim white)<%an>%C(reset) %C(bold blue)%ar%C(reset)%C(bold yellow)%d%C(reset)'
-	unstage = reset HEAD --
-	uncommit = reset --soft HEAD~
-  foda-se = reset --hard HEAD
-  fml = !git fetch origin && git reset --hard origin/$(git rev-parse --abbrev-ref HEAD)
-	sync = !git tag -l | xargs git tag -d && git fetch -t
-  rbi = rebase -i
-	rbc = rebase --continue
-	rbs = rebase --skip
-	rba = rebase --abort
+  sync = !git tag -l | xargs git tag -d && git fetch -t
+  unstage = reset HEAD --
+  rsh = "!f() { git reset --soft HEAD~${1}; }; f"
+  rhh = "!f() { git reset --hard HEAD~${1}; }; f"
+  rbi = "!f() { git rebase -i HEAD~${1}; }; f"
+  rbc = rebase --continue
+  rbs = rebase --skip
+  rba = rebase --abort
   cp = cherry-pick
   cpc = cherry-pick --continue
   cpa = cherry-pick --abort
+  foda-se = reset --hard HEAD
+  fml = !git fetch origin && git reset --hard origin/$(git rev-parse --abbrev-ref HEAD)
 
 [pager]
-	diff = diff-so-fancy | less --tabs=2 -RFX
-	show = diff-so-fancy | less --tabs=2 -RFX
+  diff = diff-so-fancy | less --tabs=2 -RFX
+  show = diff-so-fancy | less --tabs=2 -RFX
 
 [color]
   ui = true
@@ -95,7 +95,7 @@
   followTags = true
 
 [pull]
-	rebase = true
+  rebase = true
 
 [fetch]
   prune = true
@@ -108,8 +108,8 @@
   cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
 
 [difftool "sourcetree"]
-	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path =
+  cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+  path =
 
 [url "git@github.com:vtex-apps/"]
     insteadOf = va:
