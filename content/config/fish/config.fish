@@ -49,3 +49,5 @@ set SPACEFISH_GIT_STATUS_COLOR 'cyan'
 set SPACEFISH_GIT_BRANCH_COLOR 'yellow'
 
 set SPACEFISH_PACKAGE_SYMBOL '📦 '
+# fnm
+eval (fnm env --multi)
