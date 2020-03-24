@@ -5,8 +5,7 @@ paths=(
   fish/config.fish
   fish/path.fish
   fish/conf.d/til.fish
-  # omf/pkg/til
-  # omf/bundle
+  fish/conf.d/vtex.fish
 )
 
 for path in ${paths[*]}; do

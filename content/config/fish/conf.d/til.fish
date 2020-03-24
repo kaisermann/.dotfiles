@@ -91,33 +91,6 @@ function til::exit_code
     end
 end
 
-set vtex_json_path $HOME/.config/configstore/vtex.json
-function vtex::prompt
-    if not test -f $vtex_json_path
-        return
-    end
-
-    function parse_vtex_json
-        cat $vtex_json_path | grep $argv[1] | sed -n 's/.*\:.*\"\(.*\)\".*/\1/p'
-    end
-
-    function vtex::get_account
-        parse_vtex_json "\"account\""
-    end
-
-    function vtex::get_workspace
-        parse_vtex_json "\"workspace\""
-    end
-
-    if test (vtex::get_workspace 2> /dev/null)
-        echo -sn '['
-        set_color magenta
-        echo -sn (vtex::get_account)/(vtex::get_workspace)
-        set_color normal
-        echo -sn ']'
-    end
-end
-
 function fish_right_prompt
     set -l exit_code $status
     vtex::prompt
