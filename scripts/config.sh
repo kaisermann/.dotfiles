@@ -10,6 +10,6 @@ paths=(
 
 for path in ${paths[*]}; do
   mkdir -p ~/.config/$(dirname $path)
-  ln -svf $(realpath ../content/config)/$path ~/.config/$(dirname $path)/
+  ln -svf $(realpath $(dirname $0)/../content/config)/$path ~/.config/$(dirname $path)
 done
 
