@@ -1,5 +1,7 @@
 abbr ls ls -GFh
 abbr ll ls -lhA
+abbr mkdir mkdir -pv
+abbr wget wget -c
 
 # vtex related
 abbr prod vtex config set env prod
