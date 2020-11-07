@@ -5,7 +5,6 @@ set paths \
     /usr/bin \
     /usr/local/bin \
     /usr/local/sbin \
-    $HOME/.fnm \
     $HOME/.cargo/bin \
     /usr/local/opt/findutils/libexec/gnubin
 
@@ -17,8 +16,5 @@ for p in $paths
 end
 
 # fnm bootstrap
-fnm env --multi --use-on-cd | source
-
-# Adds yarn's default global packages 'bin' path
-command -v yarn >/dev/null
-and set -x PATH (yarn global bin) $PATH
+command -v fnm >/dev/null
+and fnm env --multi --use-on-cd | source

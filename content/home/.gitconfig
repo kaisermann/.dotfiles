@@ -1,3 +1,6 @@
+[init]
+  defaultBranch = "main"
+
 [user]
   name = "Christian Kaisermann"
   email = "christian@kaisermann.me"
@@ -14,37 +17,38 @@
   ignorecase = false
 
 [alias]
+  co = checkout
   ci = commit
   cm = "!f() { git commit -m \"$*\"; }; f"
-  amend = commit --amend --reuse-message=HEAD
+  amend = commit --amend -C HEAD
   uncommit = reset --soft HEAD~
   st = status
   sts = status -sb
-  stl = ls-files -m -o --exclude-standard
   br = branch
-  co = checkout
-  cr = clone --recursive
-  df = diff --word-diff
-  dfc = diff --word-diff --cached
+  df = diff
+  dfs = diff --stat
+  dfc = diff --cached
+  dfcs = diff --cached --stat
   l = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
   ls = log --pretty=oneline --graph --abbrev-commit --stat
-  g = grep --break --heading --line-number
-  contrib = shortlog --summary --numbered
   show-ignored = "! git clean -ndX | perl -pe 's/Would remove/Ignored:/'"
   changelog = log --oneline --abbrev-commit --no-merges
-  sync = !git tag -l | xargs git tag -d && git fetch -t
   unstage = reset HEAD --
   rsh = "!f() { git reset --soft HEAD~${1}; }; f"
   rhh = "!f() { git reset --hard HEAD~${1}; }; f"
   rbi = "!f() { git rebase -i HEAD~${1}; }; f"
   rbc = rebase --continue
   rbs = rebase --skip
+  cr = clone --recursive
   rba = rebase --abort
   cp = cherry-pick
   cpc = cherry-pick --continue
   cpa = cherry-pick --abort
-  foda-se = reset --hard HEAD
   fml = !git fetch origin && git reset --hard origin/$(git rev-parse --abbrev-ref HEAD)
+  contrib = shortlog --summary --numbered
+  foda-se = reset --hard HEAD
+  sync = !git tag -l | xargs git tag -d && git fetch -t
+  g = grep --break --heading --line-number
 
 [pager]
   diff = diff-so-fancy | less --tabs=2 -RFX

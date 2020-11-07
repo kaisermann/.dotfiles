@@ -11,3 +11,5 @@ fishpkg/fish-pwd-is-home
 fishpkg/fish-last-job-id
 fishpkg/fish-host-info
 decors/fish-colors
+jorgebucaran/fish-nvm
+james2doyle/omf-plugin-fnm

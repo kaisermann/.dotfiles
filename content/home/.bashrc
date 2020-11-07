@@ -6,3 +6,5 @@ export PATH="/usr/local/sbin:$PATH"
 alias ls='ls -GFh'
 
 export PATH=$PATH:/home/kaisermann/.postools
+export VOLTA_HOME="$HOME/.volta"
+export PATH="$VOLTA_HOME/bin:$PATH"
