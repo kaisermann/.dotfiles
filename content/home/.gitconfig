@@ -114,5 +114,8 @@
 [url "git@github.com:vtex/"]
     insteadOf = v:
 
+[url "git@github.com:getcircuit/"]
+    insteadOf = gc:
+
 [url "git@github.com:kaisermann/"]
     insteadOf = kaisermann:

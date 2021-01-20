@@ -10,23 +10,20 @@ brew upgrade
 apps=(
   coreutils
   exiftool
-  ffmpeg --with-fdk-aac --with-sdl2 --with-freetype --with-libass --with-libvorbis --with-libvpx --with-opus --with-x265
+  ffmpeg
   fish
   git
-  grep --with-default-names
+  grep
   imagemagick
   jq
   keychain
   ncdu
-  shellcheck
   ssh-copy-id
   tree
   vim
-  wget
-  wifi-password
   z
 )
 
 for app in ${apps[*]}; do
-  brew cask install $app
+  brew install $app
 done

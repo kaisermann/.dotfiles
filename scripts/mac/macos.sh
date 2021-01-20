@@ -38,3 +38,7 @@ defaults write com.apple.desktopservices DSDontWriteUSBStores -bool true
 defaults write -g NSAutomaticSpellingCorrectionEnabled -bool false
 
 killall Finder /System/Library/CoreServices/Finder.app;
+
+# Disable accented characters popup
+defaults write -g ApplePressAndHoldEnabled -bool false
+

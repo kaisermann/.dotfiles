@@ -3,8 +3,6 @@ paths=(
   .exiftool_config
   .gitconfig
   .gitignore.global
-  .bash_profile
-  .bashrc
   .dircolors
   .vimrc
   .vim

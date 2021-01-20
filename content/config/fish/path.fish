@@ -14,7 +14,3 @@ for p in $paths
         set -x PATH $p $PATH
     end
 end
-
-# fnm bootstrap
-command -v fnm >/dev/null
-and fnm env --multi --use-on-cd | source

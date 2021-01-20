@@ -5,7 +5,6 @@ paths=(
   fish/config.fish
   fish/path.fish
   fish/conf.d/til.fish
-  fish/conf.d/vtex.fish
 )
 
 for path in ${paths[*]}; do
