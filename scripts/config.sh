@@ -1,6 +1,6 @@
 #!/bin/bash
 paths=(
-  fish/fishfile
+  fish/fish_plugins
   fish/abbrs.fish
   fish/config.fish
   fish/path.fish

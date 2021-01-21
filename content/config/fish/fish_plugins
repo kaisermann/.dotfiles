@@ -3,9 +3,7 @@ edc/bass
 laughedelic/pisces
 oh-my-fish/plugin-bang-bang
 oh-my-fish/plugin-ssh
-oh-my-fish/plugin-node-binpath
-oh-my-fish/plugin-expand
+fishpkg/fish-humanize-duration
 decors/fish-colors
-jorgebucaran/fish-nvm
-james2doyle/omf-plugin-fnm
 IlanCosman/tide
+oh-my-fish/plugin-node-binpath
