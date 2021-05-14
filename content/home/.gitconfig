@@ -20,6 +20,7 @@
   co = checkout
   ci = commit
   cm = "!f() { git commit -m \"$*\"; }; f"
+  cmnv = "!f() { git commit -m \"$*\" --no-verify; }; f"
   amend = commit --amend -C HEAD
   uncommit = reset --soft HEAD~
   st = status
@@ -49,6 +50,8 @@
   foda-se = reset --hard HEAD
   sync = !git tag -l | xargs git tag -d && git fetch -t
   g = grep --break --heading --line-number
+  polite-force-push = push --force-with-lease
+	recent = branch --sort=-committerdate --format=\"%(committerdate:relative)%09%(refname:short)\"
 
 [pager]
   diff = diff-so-fancy | less --tabs=2 -RFX
