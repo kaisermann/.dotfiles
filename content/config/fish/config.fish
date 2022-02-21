@@ -28,7 +28,12 @@ source $DIR/abbrs.fish
 
 set -gx VOLTA_HOME "$HOME/.volta"
 
+# sets brew and volta bin paths
 set -gx PATH \
-  "$VOLTA_HOME/bin" \
-  /opt/homebrew/bin/ \
-  $PATH
+    $PATH \
+    /opt/homebrew/bin/ \
+    "$VOLTA_HOME/bin"
+
+# sets closest node binary path
+# needs the volta bin path to be on the $PATH already
+set -gx PATH $PATH (npm bin)
