@@ -10,10 +10,13 @@ apps=(
   istat-menus
   nordvpn
   qbittorrent
-  spectacle
+  spotify
+  reactangle
   teamviewer
   telegram-desktop
   the-unarchiver
+  tuple
+  twist
   vlc
   whatsapp
 )
