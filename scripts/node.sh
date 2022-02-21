@@ -10,7 +10,6 @@ volta install node
 packages=(
   diff-so-fancy
   npm-check-updates
-  sirv-cli
 )
 
 for package in ${packages[*]}; do

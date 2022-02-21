@@ -16,9 +16,7 @@ apps=(
   grep
   imagemagick
   jq
-  keychain
   ncdu
-  ssh-copy-id
   tree
   vim
   z

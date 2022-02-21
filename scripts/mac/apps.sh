@@ -4,19 +4,18 @@ apps=(
   appcleaner
   diskwave
   firefox
-  flux
-  google-backup-and-sync
   google-chrome
+  google-drive
   handbrake
-  imageoptim
   istat-menus
-  licecap
+  nordvpn
   qbittorrent
   spectacle
   teamviewer
   telegram-desktop
   the-unarchiver
   vlc
+  whatsapp
 )
 
 for app in ${apps[*]}; do

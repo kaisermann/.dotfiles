@@ -22,14 +22,13 @@ set -x LESS_TERMCAP_so (printf "\033[01;44;33m")
 set -x LESS_TERMCAP_ue (printf "\033[0m")
 set -x LESS_TERMCAP_us (printf "\033[01;32m")
 
-# Dircolors (fish's ls already does it)
-# eval (dircolors -c ~/.dircolors | sed 's/>&\/dev\/null$//')
-
 set DIR (realpath (dirname (status -f)); and pwd)
 
-source $DIR/path.fish
 source $DIR/abbrs.fish
 
 set -gx VOLTA_HOME "$HOME/.volta"
-set -gx PATH "$VOLTA_HOME/bin" $PATH
 
+set -gx PATH \
+  "$VOLTA_HOME/bin" \
+  /opt/homebrew/bin/ \
+  $PATH
