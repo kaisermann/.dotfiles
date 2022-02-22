@@ -10,7 +10,7 @@
 
 [core]
   excludesfile = ~/.gitignore.global
-  editor = vim
+	editor = code --wait
   filemode = false
   trustctime = false
   autocrlf = input
@@ -52,6 +52,8 @@
   g = grep --break --heading --line-number
   polite-force-push = push --force-with-lease
 	recent = branch --sort=-committerdate --format=\"%(committerdate:relative)%09%(refname:short)\"
+	bora = !gh pr create --fill --web
+  pei = bora
 
 [pager]
   diff = diff-so-fancy | less --tabs=2 -RFX
@@ -98,7 +100,7 @@
   prompt = false
 
 [push]
-  default = current
+	default = current
   followTags = true
 
 [pull]
