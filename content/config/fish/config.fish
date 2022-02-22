@@ -25,6 +25,7 @@ set -x LESS_TERMCAP_us (printf "\033[01;32m")
 set DIR (realpath (dirname (status -f)); and pwd)
 
 source $DIR/abbrs.fish
+source $DIR/functions/node_bin_path.fish
 
 set -gx VOLTA_HOME "$HOME/.volta"
 
@@ -33,7 +34,3 @@ set -gx PATH \
     $PATH \
     /opt/homebrew/bin/ \
     "$VOLTA_HOME/bin"
-
-# sets closest node binary path
-# needs the volta bin path to be on the $PATH already
-set -gx PATH $PATH (npm bin)
