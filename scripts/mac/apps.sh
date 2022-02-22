@@ -14,6 +14,7 @@ apps=(
   reactangle
   teamviewer
   telegram-desktop
+  maccy
   the-unarchiver
   tuple
   twist
