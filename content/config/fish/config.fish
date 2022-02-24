@@ -30,7 +30,8 @@ source $DIR/functions/node_bin_path.fish
 set -gx VOLTA_HOME "$HOME/.volta"
 
 # sets brew and volta bin paths
-set -gx PATH \
-    $PATH \
-    /opt/homebrew/bin/ \
-    "$VOLTA_HOME/bin"
+fish_add_path /opt/homebrew/bin/
+fish_add_path $VOLTA_HOME/bin/
+
+# Java runtime
+fish_add_path /opt/homebrew/opt/openjdk@11/bin
