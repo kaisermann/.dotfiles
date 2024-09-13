@@ -1,7 +1,6 @@
 abbr mkdir mkdir -pv
 abbr wget wget -c
 
-# vtex related
 if command -v exa >/dev/null
     abbr ls exa
 else
@@ -39,4 +38,9 @@ function killport
     else
         echo "No process running on port" $argv[1]
     end
+end
+
+
+function mirror-android
+  scrcpy --video-codec=h265 -m1920 --max-fps=60 --no-audio -K
 end

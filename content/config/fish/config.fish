@@ -26,7 +26,7 @@ set -x LESS_TERMCAP_us (printf "\033[01;32m")
 
 set DIR (realpath (dirname (status -f)); and pwd)
 
-source $DIR/abbrs.fish
+source ~/.config/fish/abbrs.fish
 
 ################
 # PATH related #
@@ -85,3 +85,12 @@ end
 
 # Run it when a session starts
 find_node_bin
+
+# bun
+set -Ux BUN_INSTALL "/Users/kaisermann/.bun"
+fish_add_path "/Users/kaisermann/.bun/bin"
+
+
+# tabtab source for packages
+# uninstall by removing these lines
+[ -f ~/.config/tabtab/fish/__tabtab.fish ]; and . ~/.config/tabtab/fish/__tabtab.fish; or true

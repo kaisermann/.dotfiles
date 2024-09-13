@@ -52,7 +52,7 @@
   g = grep --break --heading --line-number
   polite-force-push = push --force-with-lease
 	recent = branch --sort=-committerdate --format=\"%(committerdate:relative)%09%(refname:short)\"
-	bora = !gh pr create --fill --web
+	bora = !gh pr create --web
   pei = bora
 
 [pager]
@@ -102,6 +102,7 @@
 [push]
 	default = current
   followTags = true
+	autoSetupRemote = true
 
 [pull]
   rebase = true
@@ -124,3 +125,6 @@
 
 [url "git@github.com:kaisermann/"]
     insteadOf = kaisermann:
+[diff "lockb"]
+	textconv = bun
+	binary = true
