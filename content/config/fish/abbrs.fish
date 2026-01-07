@@ -40,7 +40,18 @@ function killport
     end
 end
 
-
 function mirror-android
-  scrcpy --video-codec=h265 -m1920 --max-fps=60 --no-audio -K
+    if test (count $argv) -gt 0
+        scrcpy --video-codec=h265 -m1920 --max-fps=60 --no-audio -K --tcpip=192.168.1.247:5555
+    else
+        scrcpy --video-codec=h265 -m1920 --max-fps=60 --no-audio -K
+    end
+end
+
+# Auto-create aliases for scripts in ~/scripts with kiwi- prefix
+for script in ~/scripts/kiwi-*.sh
+    if test -x "$script"
+        set script_name (basename "$script" .sh)
+        alias $script_name="$script"
+    end
 end

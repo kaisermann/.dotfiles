@@ -86,6 +86,13 @@ end
 # Run it when a session starts
 find_node_bin
 
+# Flush DNS cache
+function reset-dns
+    sudo dscacheutil -flushcache
+    sudo killall -HUP mDNSResponder
+    echo "DNS cache flushed"
+end
+
 # bun
 set -Ux BUN_INSTALL "/Users/kaisermann/.bun"
 fish_add_path "/Users/kaisermann/.bun/bin"
