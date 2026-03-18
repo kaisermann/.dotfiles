@@ -19,6 +19,7 @@ setopt SHARE_HISTORY         # Share history between sessions
 setopt APPEND_HISTORY        # Append, don't overwrite
 setopt INC_APPEND_HISTORY    # Write immediately, not on exit
 setopt HIST_VERIFY           # Show expanded history before executing
+setopt HIST_EXPIRE_DUPS_FIRST # Expire duplicate entries first when trimming
 
 # Directory navigation
 setopt AUTO_CD               # cd by just typing the directory name
@@ -60,6 +61,9 @@ bindkey '^[[F' end-of-line              # End key
 
 # ── Sheldon (plugin manager) ───────────────────────────────────────
 eval "$(sheldon source)"
+
+# ── fzf (fuzzy finder) ────────────────────────────────────────────
+source <(fzf --zsh)
 
 # ── Zoxide (smart cd) ──────────────────────────────────────────────
 eval "$(zoxide init zsh)"

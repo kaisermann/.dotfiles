@@ -18,6 +18,7 @@ brew "ffmpeg"
 brew "stow"
 
 # Shell & prompt
+brew "fzf"
 brew "sheldon"
 brew "starship"
 brew "zoxide"
