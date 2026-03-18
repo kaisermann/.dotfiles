@@ -1,0 +1,54 @@
+# Starship prompt configuration
+# Lean and minimal, inspired by Tide's lean mode
+
+format = """$directory$git_branch$git_status$nodejs$rust$python$docker_context$kubernetes$cmd_duration$line_break$character"""
+
+# Don't add a blank line between prompts
+add_newline = false
+
+[character]
+success_symbol = "[❯](bold green)"
+error_symbol = "[❯](bold red)"
+
+[directory]
+truncation_length = 3
+truncation_symbol = "…/"
+style = "bold cyan"
+
+[git_branch]
+format = "[$symbol$branch]($style) "
+symbol = " "
+style = "bold purple"
+
+[git_status]
+format = '([\[$all_status$ahead_behind\]]($style) )'
+style = "bold red"
+
+[nodejs]
+format = "[$symbol$version]($style) "
+symbol = " "
+detect_extensions = []
+detect_files = ["package.json"]
+detect_folders = []
+
+[rust]
+format = "[$symbol$version]($style) "
+symbol = " "
+
+[python]
+format = "[$symbol$version]($style) "
+symbol = " "
+
+[docker_context]
+format = "[$symbol$context]($style) "
+symbol = " "
+
+[kubernetes]
+disabled = false
+format = "[$symbol$context]($style) "
+symbol = "⎈ "
+
+[cmd_duration]
+min_time = 2000
+format = "[$duration]($style) "
+style = "bold yellow"

@@ -1,0 +1,73 @@
+# ── CLI Tools ───────────────────────────────────────────────────────
+brew "coreutils"
+brew "git"
+brew "gh"
+brew "vim"
+brew "jq"
+brew "ripgrep"
+brew "tree"
+brew "wget"
+brew "rsync"
+brew "rename"
+brew "trash"
+brew "ncdu"
+brew "hyperfine"
+brew "exiftool"
+brew "imagemagick"
+brew "ffmpeg"
+brew "stow"
+
+# Shell & prompt
+brew "sheldon"
+brew "starship"
+brew "zoxide"
+brew "eza"
+
+# Dev tools
+brew "volta"
+brew "deno"
+brew "rust"
+brew "python@3.14"
+brew "openjdk@11"
+brew "cmake"
+
+# DevOps
+brew "helm"
+brew "argocd"
+brew "act"
+
+# AI
+brew "ollama"
+
+# Misc
+brew "blueutil"
+brew "scrcpy"
+brew "yt-dlp"
+brew "nmap"
+
+# ── GUI Apps ────────────────────────────────────────────────────────
+cask "appcleaner"
+cask "chatgpt"
+cask "cleanshot"
+cask "deepl"
+cask "firefox"
+cask "gcloud-cli"
+cask "google-chrome"
+cask "handbrake-app"
+cask "istat-menus"
+cask "maccy"
+cask "mullvad-vpn"
+cask "numi"
+cask "obsidian"
+cask "raycast"
+cask "rectangle"
+cask "spotify"
+cask "tailscale-app"
+cask "telegram-desktop"
+cask "the-unarchiver"
+cask "tuple"
+cask "twist"
+cask "visual-studio-code"
+cask "vlc"
+cask "warp"
+cask "whatsapp"

@@ -10,12 +10,11 @@
 
 [core]
   excludesfile = ~/.gitignore.global
-	editor = code --wait
+  editor = code --wait
   filemode = false
   trustctime = false
   autocrlf = input
   ignorecase = false
-	pager = less
 
 [alias]
   co = checkout
@@ -52,15 +51,15 @@
   sync = !git tag -l | xargs git tag -d && git fetch -t
   g = grep --break --heading --line-number
   polite-force-push = push --force-with-lease
-	recent = branch --sort=-committerdate --format=\"%(committerdate:relative)%09%(refname:short)\"
-	bora = !gh pr create --web
+  recent = branch --sort=-committerdate --format="%(committerdate:relative)%09%(refname:short)"
+  bora = !gh pr create --web
   pei = bora
   pushnv = push --no-verify
 
 [pager]
   diff = diff-so-fancy | less --tabs=2 -RFX
   show = diff-so-fancy | less --tabs=2 -RFX
-	log = true
+  log = true
 
 [color]
   ui = true
@@ -87,9 +86,6 @@
   newNormal = "green bold"
   newHighlight = "green bold 22"
 
-# [credential]
-#   helper = osxkeychain
-
 [grep]
   lineNumber = true
 
@@ -103,9 +99,9 @@
   prompt = false
 
 [push]
-	default = current
+  default = current
   followTags = true
-	autoSetupRemote = true
+  autoSetupRemote = true
 
 [pull]
   rebase = true
@@ -115,14 +111,10 @@
 
 [diff]
   renames = copies
-  tool = Kaleidoscope
-
-[url "git@github.com:getcircuit/"]
-    insteadOf = gc:
 
 [url "git@github.com:kaisermann/"]
-    insteadOf = kaisermann:
+  insteadOf = kaisermann:
 
 [diff "lockb"]
-	textconv = bun
-	binary = true
+  textconv = bun
+  binary = true
