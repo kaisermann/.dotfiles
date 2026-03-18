@@ -40,12 +40,3 @@ ssh() {
     *)               command ssh "$@" ;;
   esac
 }
-
-# Auto-create aliases for scripts in ~/scripts with kiwi- prefix
-if [[ -d "$HOME/scripts" ]]; then
-  for script in "$HOME"/scripts/kiwi-*.sh(N); do
-    if [[ -x "$script" ]]; then
-      alias "${${script:t}%.sh}"="$script"
-    fi
-  done
-fi
