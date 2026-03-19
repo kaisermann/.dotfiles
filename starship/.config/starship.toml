@@ -47,6 +47,21 @@ symbol = " "
 disabled = false
 format = "[$symbol$context]($style) "
 symbol = "⎈ "
+detect_extensions = ["yaml", "yml"]
+detect_files = ["Chart.yaml", "helmfile.yaml", "kustomization.yaml", "Dockerfile"]
+detect_folders = ["charts", "k8s", "kubernetes", "helm"]
+
+[kubernetes.context_aliases]
+"gke_circuit-api-284012_asia-east1-c_circuit-ae1c" = "circuit-ae1c"
+"gke_circuit-api-284012_asia-southeast1-a_circuit-ase1a" = "circuit-ase1a"
+"gke_circuit-api-284012_australia-southeast1-a_circuit-ause1a" = "circuit-ause1a"
+"gke_circuit-api-284012_europe-west1-b_circuit-euw1b" = "circuit-euw1b"
+"gke_circuit-api-284012_europe-west4-b_circuit-euw4b" = "circuit-euw4b"
+"gke_circuit-api-284012_southamerica-east1-c_circuit-sae1c" = "circuit-sae1c"
+"gke_circuit-api-284012_southamerica-west1-a_circuit-saw1a" = "circuit-saw1a"
+"gke_circuit-api-284012_us-central1-a_circuit-usc1a" = "circuit-usc1a"
+"gke_circuit-api-284012_us-central1-b_control-usc1b" = "control-usc1b"
+"gke_circuit-api-284012_us-west1-b_circuit-usw1b" = "circuit-usw1b"
 
 [cmd_duration]
 min_time = 2000

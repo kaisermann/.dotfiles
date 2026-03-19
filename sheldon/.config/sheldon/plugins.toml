@@ -9,6 +9,10 @@ github = "zsh-users/zsh-completions"
 [plugins.zsh-history-substring-search]
 github = "zsh-users/zsh-history-substring-search"
 
+# fzf-tab must be loaded after compinit but before syntax highlighting
+[plugins.fzf-tab]
+github = "Aloxaf/fzf-tab"
+
 # Syntax highlighting must be loaded last
 [plugins.fast-syntax-highlighting]
 github = "zdharma-continuum/fast-syntax-highlighting"

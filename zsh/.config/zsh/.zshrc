@@ -36,6 +36,10 @@ setopt COMPLETE_IN_WORD      # Complete from both ends of a word
 setopt INTERACTIVE_COMMENTS  # Allow comments in interactive shell
 setopt NO_BEEP               # No beeping
 
+# Word navigation: treat / and other symbols as word boundaries
+# so Alt+Backspace deletes one path component, not the whole argument
+WORDCHARS=${WORDCHARS/\/}
+
 # ── Completion system ───────────────────────────────────────────────
 autoload -Uz compinit
 # Only regenerate .zcompdump once per day for faster startup
@@ -46,7 +50,13 @@ else
 fi
 
 # Completion styling
-zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' # Case-insensitive matching
+zstyle ':completion:*' matcher-list \
+  'm:{a-zA-Z}={A-Za-z}' \
+  'r:|[._-]=* r:|=*' \
+  'l:|=* r:|=*'
+# 1. Case-insensitive matching
+# 2. Partial-word matching: complete at dots, hyphens, underscores (disp → spoke-dispatch)
+# 3. Substring matching: match anywhere in the candidate as a last resort
 zstyle ':completion:*' list-colors ''                       # Colorize completions
 zstyle ':completion:*' menu select                          # Menu-style selection
 zstyle ':completion:*' special-dirs true                    # Complete . and ..
@@ -61,6 +71,10 @@ bindkey '^[[F' end-of-line              # End key
 
 # ── Sheldon (plugin manager) ───────────────────────────────────────
 eval "$(sheldon source)"
+
+# ── fzf-tab settings ──────────────────────────────────────────────
+zstyle ':fzf-tab:complete:cd:*' fzf-preview 'eza -1 --color=always $realpath'
+zstyle ':fzf-tab:*' switch-group '<' '>'
 
 # ── fzf (fuzzy finder) ────────────────────────────────────────────
 source <(fzf --zsh)
