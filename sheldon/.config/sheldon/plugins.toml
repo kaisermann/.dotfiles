@@ -13,6 +13,10 @@ github = "zsh-users/zsh-history-substring-search"
 [plugins.fzf-tab]
 github = "Aloxaf/fzf-tab"
 
+# Auto-close brackets, quotes, etc. (replaces Fish pisces plugin)
+[plugins.zsh-autopair]
+github = "hlissner/zsh-autopair"
+
 # Syntax highlighting must be loaded last
 [plugins.fast-syntax-highlighting]
 github = "zdharma-continuum/fast-syntax-highlighting"

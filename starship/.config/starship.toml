@@ -1,7 +1,7 @@
 # Starship prompt configuration
 # Lean and minimal, inspired by Tide's lean mode
 
-format = """$directory$git_branch$git_status$nodejs$rust$python$docker_context$kubernetes$cmd_duration$line_break$character"""
+format = """$directory$git_branch$git_state$git_status$nodejs$rust$python$docker_context$cmd_duration$line_break$character"""
 
 # Don't add a blank line between prompts
 add_newline = false
@@ -11,18 +11,38 @@ success_symbol = "[❯](bold green)"
 error_symbol = "[❯](bold red)"
 
 [directory]
-truncation_length = 3
-truncation_symbol = "…/"
-style = "bold cyan"
+truncation_length = 0
+fish_style_pwd_dir_length = 1
+truncate_to_repo = true
+style = "cyan"
+repo_root_style = "bold cyan"
+repo_root_format = "[$before_root_path]($style)[$repo_root]($repo_root_style)[$path]($style)[$read_only]($read_only_style) "
 
 [git_branch]
-format = "[$symbol$branch]($style) "
+format = "[$symbol$branch(:$remote_branch)]($style) "
 symbol = " "
 style = "bold purple"
+truncation_length = 24
+truncation_symbol = "…"
+
+[git_state]
+format = '\([$state( $progress_current/$progress_total)]($style)\) '
+style = "bold yellow"
 
 [git_status]
-format = '([\[$all_status$ahead_behind\]]($style) )'
-style = "bold red"
+format = '([$conflicted$stashed$deleted$renamed$modified$typechanged$staged$untracked$ahead_behind]($style) )'
+conflicted = "[=${count}](bold red) "
+stashed = "[*${count}](bold cyan) "
+deleted = "[✘${count}](bold red) "
+renamed = "[»${count}](bold purple) "
+modified = "[!${count}](bold yellow) "
+typechanged = "[!${count}](bold yellow) "
+staged = "[+${count}](bold green) "
+untracked = "[?${count}](bold blue) "
+ahead = "⇡${count} "
+behind = "⇣${count} "
+diverged = "⇡${ahead_count}⇣${behind_count} "
+style = ""
 
 [nodejs]
 format = "[$symbol$version]($style) "
@@ -43,27 +63,7 @@ symbol = " "
 format = "[$symbol$context]($style) "
 symbol = " "
 
-[kubernetes]
-disabled = false
-format = "[$symbol$context]($style) "
-symbol = "⎈ "
-detect_extensions = ["yaml", "yml"]
-detect_files = ["Chart.yaml", "helmfile.yaml", "kustomization.yaml", "Dockerfile"]
-detect_folders = ["charts", "k8s", "kubernetes", "helm"]
-
-[kubernetes.context_aliases]
-"gke_circuit-api-284012_asia-east1-c_circuit-ae1c" = "circuit-ae1c"
-"gke_circuit-api-284012_asia-southeast1-a_circuit-ase1a" = "circuit-ase1a"
-"gke_circuit-api-284012_australia-southeast1-a_circuit-ause1a" = "circuit-ause1a"
-"gke_circuit-api-284012_europe-west1-b_circuit-euw1b" = "circuit-euw1b"
-"gke_circuit-api-284012_europe-west4-b_circuit-euw4b" = "circuit-euw4b"
-"gke_circuit-api-284012_southamerica-east1-c_circuit-sae1c" = "circuit-sae1c"
-"gke_circuit-api-284012_southamerica-west1-a_circuit-saw1a" = "circuit-saw1a"
-"gke_circuit-api-284012_us-central1-a_circuit-usc1a" = "circuit-usc1a"
-"gke_circuit-api-284012_us-central1-b_control-usc1b" = "control-usc1b"
-"gke_circuit-api-284012_us-west1-b_circuit-usw1b" = "circuit-usw1b"
-
 [cmd_duration]
-min_time = 2000
+min_time = 3000
 format = "[$duration]($style) "
 style = "bold yellow"

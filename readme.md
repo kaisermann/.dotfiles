@@ -137,7 +137,10 @@ Deduplicated via `typeset -U path`.
 | `reset-dns` | `reset-dns` | Flushes macOS DNS cache |
 | `killport` | `killport 3000` | Kill process on a TCP port |
 | `zcode` | `zcode myproject` | Zoxide jump + open in VS Code |
+| `mirror-android` | `mirror-android [wifi]` | Mirror Android screen via scrcpy (USB or wireless) |
 | `ssh` | `ssh host` | Wraps ssh to downgrade `$TERM` for remote compatibility |
+
+Auto-aliases are created for any executable `~/scripts/kiwi-*.sh` scripts (alias name = filename without `.sh`).
 
 #### Tool initialization (`.zshrc`)
 
@@ -152,14 +155,16 @@ Deduplicated via `typeset -U path`.
 
 ### `sheldon/` — Zsh plugin manager
 
-[Sheldon](https://sheldon.cli.rs/) manages 4 Zsh plugins. Plugin cache lives at `~/.local/share/sheldon/` (not tracked).
+[Sheldon](https://sheldon.cli.rs/) manages Zsh plugins. Plugin cache lives at `~/.local/share/sheldon/` (not tracked).
 
 | Plugin | Source | Purpose |
 |--------|--------|---------|
 | `zsh-autosuggestions` | zsh-users/zsh-autosuggestions | Fish-like inline history suggestions |
 | `zsh-completions` | zsh-users/zsh-completions | Extra completion definitions for many tools |
 | `zsh-history-substring-search` | zsh-users/zsh-history-substring-search | Type a substring, arrow keys search matching history |
-| `fast-syntax-highlighting` | zdharma-continuum/fast-syntax-highlighting | Real-time command syntax highlighting |
+| `fzf-tab` | Aloxaf/fzf-tab | Replace zsh completion menu with fzf (fuzzy filtering, preview) |
+| `zsh-autopair` | hlissner/zsh-autopair | Auto-close brackets, quotes, backticks (Fish pisces equivalent) |
+| `fast-syntax-highlighting` | zdharma-continuum/fast-syntax-highlighting | Real-time command syntax highlighting (loaded last) |
 
 ---
 
@@ -170,39 +175,24 @@ Minimal single-line [Starship](https://starship.rs/) prompt inspired by Tide's l
 **Prompt layout:**
 
 ```
-directory git_branch git_status nodejs rust python docker_context kubernetes cmd_duration
+directory git_branch git_state git_status nodejs rust python docker_context cmd_duration
 ❯
 ```
 
 | Module | Symbol | Style | Details |
 |--------|--------|-------|---------|
-| directory | — | bold cyan | Truncated to 3 segments, `…/` prefix |
-| git_branch | ` ` | bold purple | Current branch |
-| git_status | — | bold red | `[$all_status$ahead_behind]` |
+| directory | — | bold cyan (repo root) / cyan | Fish-style truncation (1-char parents), repo root bold and never truncated |
+| git_branch | ` ` | bold purple | Branch name, truncated at 24 chars, shows remote if different |
+| git_state | — | bold yellow | Rebase/merge/cherry-pick state with progress |
+| git_status | — | per-type colors | `=` conflicted (red), `*` stashed (cyan), `+` staged (green), `!` modified (yellow), `?` untracked (blue), `✘` deleted (red), `»` renamed (purple), `⇡⇣` ahead/behind |
 | nodejs | ` ` | default | Detected via `package.json` only |
 | rust | ` ` | default | Detected automatically |
 | python | ` ` | default | Detected automatically |
 | docker_context | ` ` | default | Current Docker context |
-| kubernetes | `⎈ ` | default | Shown only in k8s directories |
-| cmd_duration | — | bold yellow | Commands taking 2s+ |
+| cmd_duration | — | bold yellow | Commands taking 3s+ |
 | character | `❯` | green/red | Success/error indicator |
 
 `add_newline = false` — no blank line between prompts.
-
-**Kubernetes context aliases** — the `[kubernetes]` module only appears in directories containing k8s-related files (`Chart.yaml`, `helmfile.yaml`, `kustomization.yaml`, `Dockerfile`) or folders (`charts/`, `k8s/`, `kubernetes/`, `helm/`). Long GKE context names are aliased:
-
-| Context | Alias |
-|---------|-------|
-| `gke_circuit-api-284012_asia-east1-c_circuit-ae1c` | `circuit-ae1c` |
-| `gke_circuit-api-284012_asia-southeast1-a_circuit-ase1a` | `circuit-ase1a` |
-| `gke_circuit-api-284012_australia-southeast1-a_circuit-ause1a` | `circuit-ause1a` |
-| `gke_circuit-api-284012_europe-west1-b_circuit-euw1b` | `circuit-euw1b` |
-| `gke_circuit-api-284012_europe-west4-b_circuit-euw4b` | `circuit-euw4b` |
-| `gke_circuit-api-284012_southamerica-east1-c_circuit-sae1c` | `circuit-sae1c` |
-| `gke_circuit-api-284012_southamerica-west1-a_circuit-saw1a` | `circuit-saw1a` |
-| `gke_circuit-api-284012_us-central1-a_circuit-usc1a` | `circuit-usc1a` |
-| `gke_circuit-api-284012_us-central1-b_control-usc1b` | `control-usc1b` |
-| `gke_circuit-api-284012_us-west1-b_circuit-usw1b` | `circuit-usw1b` |
 
 ---
 
