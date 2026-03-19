@@ -452,6 +452,7 @@ Custom tag shortcuts for batch metadata operations on photos and videos:
 | `handbrake-app` | Media | Video transcoder |
 | `istat-menus` | System | System monitor (CPU, memory, network, etc.) |
 | `maccy` | Productivity | Clipboard manager |
+| `monitorcontrol` | System | External display brightness/volume control |
 | `mullvad-vpn` | Privacy | VPN |
 | `numi` | Productivity | Calculator with natural language input |
 | `obsidian` | Productivity | Notes and knowledge management |

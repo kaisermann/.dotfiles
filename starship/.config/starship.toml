@@ -1,7 +1,7 @@
 # Starship prompt configuration
 # Lean and minimal, inspired by Tide's lean mode
 
-format = """$directory$git_branch$git_state$git_status$nodejs$rust$python$docker_context$cmd_duration$line_break$character"""
+format = """$directory $git_branch$git_state$git_status$nodejs$rust$python$docker_context$cmd_duration$line_break$character"""
 
 # Don't add a blank line between prompts
 add_newline = false
@@ -16,7 +16,7 @@ fish_style_pwd_dir_length = 1
 truncate_to_repo = true
 style = "cyan"
 repo_root_style = "bold cyan"
-repo_root_format = "[$before_root_path]($style)[$repo_root]($repo_root_style)[$path]($style)[$read_only]($read_only_style) "
+repo_root_format = "[$before_root_path]($style)[$repo_root]($repo_root_style)[$path]($style)[$read_only]($read_only_style)"
 
 [git_branch]
 format = "[$symbol$branch(:$remote_branch)]($style) "
@@ -30,7 +30,7 @@ format = '\([$state( $progress_current/$progress_total)]($style)\) '
 style = "bold yellow"
 
 [git_status]
-format = '([$conflicted$stashed$deleted$renamed$modified$typechanged$staged$untracked$ahead_behind]($style) )'
+format = '($conflicted$stashed$deleted$renamed$modified$typechanged$staged$untracked$ahead_behind)'
 conflicted = "[=${count}](bold red) "
 stashed = "[*${count}](bold cyan) "
 deleted = "[✘${count}](bold red) "
@@ -45,25 +45,25 @@ diverged = "⇡${ahead_count}⇣${behind_count} "
 style = ""
 
 [nodejs]
-format = "[$symbol$version]($style) "
+format = " [·](dimmed white) [$symbol$version]($style)"
 symbol = " "
 detect_extensions = []
 detect_files = ["package.json"]
 detect_folders = []
 
 [rust]
-format = "[$symbol$version]($style) "
+format = " [·](dimmed white) [$symbol$version]($style)"
 symbol = " "
 
 [python]
-format = "[$symbol$version]($style) "
+format = " [·](dimmed white) [$symbol$version]($style)"
 symbol = " "
 
 [docker_context]
-format = "[$symbol$context]($style) "
+format = " [·](dimmed white) [$symbol$context]($style)"
 symbol = " "
 
 [cmd_duration]
 min_time = 3000
-format = "[$duration]($style) "
+format = " [·](dimmed white) [$duration]($style)"
 style = "bold yellow"
