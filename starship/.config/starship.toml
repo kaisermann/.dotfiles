@@ -45,25 +45,25 @@ diverged = "⇡${ahead_count}⇣${behind_count} "
 style = ""
 
 [nodejs]
-format = " [$symbol$version]($style)"
+format = "[$symbol$version]($style)"
 symbol = " "
 detect_extensions = []
 detect_files = ["package.json"]
 detect_folders = []
 
 [rust]
-format = " [$symbol$version]($style)"
+format = "[$symbol$version]($style)"
 symbol = " "
 
 [python]
-format = " [$symbol$version]($style)"
+format = "[$symbol$version]($style)"
 symbol = " "
 
 [docker_context]
-format = " [$symbol$context]($style)"
+format = "[$symbol$context]($style)"
 symbol = " "
 
 [cmd_duration]
 min_time = 3000
-format = " [$duration]($style)"
+format = "[$duration]($style)"
 style = "bold yellow"
