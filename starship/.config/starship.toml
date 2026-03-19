@@ -29,18 +29,18 @@ format = '\([$state( $progress_current/$progress_total)]($style)\) '
 style = "bold yellow"
 
 [git_status]
-format = '($conflicted$stashed$deleted$renamed$modified$typechanged$staged$untracked$ahead_behind)'
-conflicted = "[=${count}](bold red) "
-stashed = "[*${count}](bold cyan) "
-deleted = "[✘${count}](bold red) "
-renamed = "[»${count}](bold purple) "
-modified = "[!${count}](bold yellow) "
-typechanged = "[!${count}](bold yellow) "
-staged = "[+${count}](bold green) "
-untracked = "[?${count}](bold blue) "
-ahead = "⇡${count} "
-behind = "⇣${count} "
-diverged = "⇡${ahead_count}⇣${behind_count} "
+format = '([\[$conflicted$stashed$deleted$renamed$modified$typechanged$staged$untracked$ahead_behind\]]($style) )'
+conflicted = "[=${count}](bold red)"
+stashed = "[*${count}](bold cyan)"
+deleted = "[✘${count}](bold red)"
+renamed = "[»${count}](bold purple)"
+modified = "[!${count}](bold yellow)"
+typechanged = "[!${count}](bold yellow)"
+staged = "[+${count}](bold green)"
+untracked = "[?${count}](bold blue)"
+ahead = "⇡${count}"
+behind = "⇣${count}"
+diverged = "⇡${ahead_count}⇣${behind_count}"
 style = ""
 
 [nodejs]
