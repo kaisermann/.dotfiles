@@ -137,10 +137,7 @@ Deduplicated via `typeset -U path`.
 | `reset-dns` | `reset-dns` | Flushes macOS DNS cache |
 | `killport` | `killport 3000` | Kill process on a TCP port |
 | `zcode` | `zcode myproject` | Zoxide jump + open in VS Code |
-| `mirror-android` | `mirror-android [wifi]` | Mirror Android screen via scrcpy (USB or wireless) |
 | `ssh` | `ssh host` | Wraps ssh to downgrade `$TERM` for remote compatibility |
-
-Auto-aliases are created for any executable `~/scripts/kiwi-*.sh` scripts (alias name = filename without `.sh`).
 
 #### Tool initialization (`.zshrc`)
 

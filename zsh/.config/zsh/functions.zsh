@@ -32,25 +32,6 @@ zcode() {
   z "$1" && code .
 }
 
-# Mirror Android screen via scrcpy
-# Usage: mirror-android         (USB)
-#        mirror-android wifi    (wireless via TCP/IP)
-mirror-android() {
-  local base_args=(--video-codec=h265 -m1920 --max-fps=60 --no-audio -K)
-  if [[ $# -gt 0 ]]; then
-    scrcpy "${base_args[@]}" --tcpip=192.168.1.247:5555
-  else
-    scrcpy "${base_args[@]}"
-  fi
-}
-
-# Auto-create aliases for kiwi-* scripts in ~/scripts
-for script in ~/scripts/kiwi-*.sh(N); do
-  if [[ -x "$script" ]]; then
-    alias "${script:t:r}"="$script"
-  fi
-done
-
 # SSH wrapper: downgrade TERM for compatibility with remote servers
 ssh() {
   case "$TERM" in
