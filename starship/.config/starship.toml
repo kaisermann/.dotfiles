@@ -19,8 +19,7 @@ repo_root_style = "bold cyan"
 repo_root_format = "[$before_root_path]($style)[$repo_root]($repo_root_style)[$path]($style)[$read_only]($read_only_style)"
 
 [git_branch]
-format = "[$symbol$branch(:$remote_branch)]($style) "
-symbol = " "
+format = "[$branch(:$remote_branch)]($style) "
 style = "bold purple"
 truncation_length = 24
 truncation_symbol = "…"
@@ -33,33 +32,33 @@ style = "bold yellow"
 format = '($conflicted$stashed$deleted$renamed$modified$typechanged$staged$untracked$ahead_behind)'
 conflicted = "[=${count}](bold red) "
 stashed = "[*${count}](bold cyan) "
-deleted = "[\u2718${count}](bold red) "
-renamed = "[\u00bb${count}](bold purple) "
+deleted = "[✘${count}](bold red) "
+renamed = "[»${count}](bold purple) "
 modified = "[!${count}](bold yellow) "
 typechanged = "[!${count}](bold yellow) "
 staged = "[+${count}](bold green) "
 untracked = "[?${count}](bold blue) "
-ahead = "\u21e1${count} "
-behind = "\u21e3${count} "
-diverged = "\u21e1${ahead_count}\u21e3${behind_count} "
+ahead = "⇡${count} "
+behind = "⇣${count} "
+diverged = "⇡${ahead_count}⇣${behind_count} "
 style = ""
 
 [nodejs]
-format = "[$version]($style)"
+format = "[$version]($style) "
 detect_extensions = []
 detect_files = ["package.json"]
 detect_folders = []
 
 [rust]
-format = "[$version]($style)"
+format = "[$version]($style) "
 
 [python]
-format = "[$version]($style)"
+format = "[$version]($style) "
 
 [docker_context]
-format = "[$context]($style)"
+format = "[$context]($style) "
 
 [cmd_duration]
 min_time = 3000
-format = "[$duration]($style)"
+format = "[$duration]($style) "
 style = "bold yellow"
