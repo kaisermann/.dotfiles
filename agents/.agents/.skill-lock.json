@@ -1,0 +1,45 @@
+{
+  "version": 3,
+  "skills": {
+    "find-skills": {
+      "source": "vercel-labs/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/vercel-labs/skills.git",
+      "skillPath": "skills/find-skills/SKILL.md",
+      "skillFolderHash": "c2f31172b6f256272305a5e6e7228b258446899f",
+      "installedAt": "2026-02-06T10:24:24.877Z",
+      "updatedAt": "2026-02-06T10:24:24.877Z"
+    },
+    "migrate-to-vinext": {
+      "source": "cloudflare/vinext",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/cloudflare/vinext.git",
+      "skillPath": ".agents/skills/migrate-to-vinext/SKILL.md",
+      "skillFolderHash": "c11b7182426827d38ffaa18c71f9587e524f72e7",
+      "installedAt": "2026-02-25T09:39:29.413Z",
+      "updatedAt": "2026-02-25T09:39:29.413Z"
+    },
+    "chrome-devtools": {
+      "source": "chromedevtools/chrome-devtools-mcp",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/chromedevtools/chrome-devtools-mcp.git",
+      "skillPath": "skills/chrome-devtools/SKILL.md",
+      "skillFolderHash": "ae16f6ecf605c5b2290802686a2b38a033432f23",
+      "installedAt": "2026-03-16T14:58:14.627Z",
+      "updatedAt": "2026-03-16T14:58:14.627Z"
+    }
+  },
+  "dismissed": {
+    "findSkillsPrompt": true
+  },
+  "lastSelectedAgents": [
+    "amp",
+    "codex",
+    "cursor",
+    "gemini-cli",
+    "github-copilot",
+    "kimi-cli",
+    "opencode",
+    "claude-code"
+  ]
+}
