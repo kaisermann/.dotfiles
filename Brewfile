@@ -1,49 +1,49 @@
 # ── CLI Tools ───────────────────────────────────────────────────────
-brew "coreutils"
-brew "git"
-brew "git-delta"
-brew "gh"
-brew "vim"
-brew "jq"
-brew "ripgrep"
-brew "tree"
-brew "wget"
-brew "rsync"
-brew "rename"
-brew "trash"
-brew "ncdu"
-brew "hyperfine"
-brew "exiftool"
-brew "imagemagick"
-brew "ffmpeg"
-brew "stow"
+brew "coreutils"                      # GNU core utilities
+brew "git"                             # Version control
+brew "git-delta"                       # Syntax-highlighting diff pager
+brew "gh"                              # GitHub CLI
+brew "vim"                             # Terminal editor
+brew "jq"                              # JSON processor
+brew "ripgrep"                         # Fast recursive grep (rg)
+brew "tree"                            # Directory tree viewer
+brew "wget"                            # File downloader
+brew "rsync"                           # File sync/transfer
+brew "rename"                          # Batch file renaming
+brew "trash"                           # Safe rm → Trash
+brew "ncdu"                            # Interactive disk usage
+brew "hyperfine"                       # Command benchmarking
+brew "exiftool"                        # Image/video metadata
+brew "imagemagick"                     # Image manipulation
+brew "ffmpeg"                          # Audio/video processing
+brew "stow"                            # Symlink manager (dotfiles)
 
 # Shell & prompt
-brew "fzf"
-brew "sheldon"
-brew "starship"
-brew "zoxide"
-brew "eza"
+brew "fzf"                             # Fuzzy finder (Ctrl-R, Ctrl-T, Alt-C)
+brew "sheldon"                         # Zsh plugin manager
+brew "starship"                        # Cross-shell prompt
+brew "zoxide"                          # Smart directory jumper (z)
+brew "eza"                             # Modern ls with icons + git
 
 # Dev tools
-brew "volta"
-brew "rust"
-brew "python@3.14"
-brew "openjdk@11"
-brew "cmake"
+brew "volta"                           # Node.js version manager
+brew "rust"                            # Rust toolchain
+brew "python@3.14"                     # Python 3.14
+brew "openjdk@11"                      # Java 11
+brew "cmake"                           # Build system generator
 
 # DevOps
-brew "helm"
-brew "argocd"
-brew "act"
+brew "helm"                            # Kubernetes package manager
+brew "argocd"                          # ArgoCD GitOps CLI
+brew "act"                             # Run GitHub Actions locally
 
 # AI
-brew "ollama"
+brew "ollama"                          # Run LLMs locally
 
 # Misc
-brew "blueutil"
-brew "scrcpy"
-brew "nmap"
+brew "blueutil"                        # Bluetooth CLI control
+brew "scrcpy"                          # Android screen mirroring
+brew "nmap"                            # Network scanner
 
 # ── GUI Apps ────────────────────────────────────────────────────────
 cask "appcleaner"
