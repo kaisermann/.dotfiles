@@ -57,9 +57,12 @@
   pushnv = push --no-verify
 
 [pager]
-  diff = diff-so-fancy | less --tabs=2 -RFX
-  show = diff-so-fancy | less --tabs=2 -RFX
+  diff = delta
+  show = delta
   log = true
+
+[interactive]
+  diffFilter = delta --color-only
 
 [color]
   ui = true

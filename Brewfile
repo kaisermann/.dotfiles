@@ -1,6 +1,7 @@
 # ── CLI Tools ───────────────────────────────────────────────────────
 brew "coreutils"
 brew "git"
+brew "git-delta"
 brew "gh"
 brew "vim"
 brew "jq"
@@ -26,7 +27,6 @@ brew "eza"
 
 # Dev tools
 brew "volta"
-brew "deno"
 brew "rust"
 brew "python@3.14"
 brew "openjdk@11"
@@ -43,12 +43,10 @@ brew "ollama"
 # Misc
 brew "blueutil"
 brew "scrcpy"
-brew "yt-dlp"
 brew "nmap"
 
 # ── GUI Apps ────────────────────────────────────────────────────────
 cask "appcleaner"
-cask "chatgpt"
 cask "cleanshot"
 cask "deepl"
 cask "firefox"

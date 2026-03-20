@@ -85,14 +85,6 @@ if should_run volta; then
     skip "Node already installed via Volta"
   fi
 
-  # diff-so-fancy is required by gitconfig pager
-  if ! volta which diff-so-fancy &>/dev/null 2>&1; then
-    info "Installing diff-so-fancy via Volta..."
-    volta install diff-so-fancy
-  else
-    skip "diff-so-fancy already installed"
-  fi
-
   ok "Volta + Node"
 fi
 
