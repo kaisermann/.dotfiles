@@ -12,6 +12,7 @@ source "$ZDOTDIR/functions.zsh"
 HISTFILE="$ZDOTDIR/.zsh_history"
 HISTSIZE=50000
 SAVEHIST=50000
+setopt EXTENDED_HISTORY       # Save timestamps in history
 setopt HIST_IGNORE_ALL_DUPS  # Don't record duplicates
 setopt HIST_SAVE_NO_DUPS     # Don't save duplicates
 setopt HIST_REDUCE_BLANKS    # Remove superfluous blanks
