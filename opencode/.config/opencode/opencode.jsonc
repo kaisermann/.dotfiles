@@ -6,11 +6,6 @@
       "command": ["npx", "@playwright/mcp@latest"],
       "enabled": false,
     },
-    "chrome-devtools": {
-      "type": "local",
-      "command": ["npx", "-y", "chrome-devtools-mcp@latest"],
-      "enabled": false,
-    },
     "svelte": {
       "type": "local",
       "command": ["npx", "-y", "@sveltejs/mcp"],

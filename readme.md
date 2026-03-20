@@ -10,13 +10,13 @@ cd ~/.dotfiles
 ./install
 ```
 
-Installs Homebrew packages, Volta/Node, stows config symlinks, locks Sheldon plugins, applies macOS defaults, and sets zsh as the default shell. Idempotent — safe to re-run.
+Installs Homebrew packages, Volta/Node/global CLIs, stows config symlinks, locks Sheldon plugins, applies macOS defaults, and sets zsh as the default shell. Idempotent — safe to re-run.
 
 ## Tasks
 
 ```sh
 ./install --brew      # Homebrew + Brewfile
-./install --volta     # Volta + Node.js
+./install --volta     # Volta + Node.js + global CLIs
 ./install --stow      # Symlink configs via Stow
 ./install --sheldon   # Lock Sheldon plugins
 ./install --macos     # macOS system defaults
@@ -40,6 +40,8 @@ Each top-level directory is a [Stow](https://www.gnu.org/software/stow/) package
 | [git/](git) | Git config + global gitignore |
 | [vim/](vim) | Vim config, color schemes, syntax files |
 | [misc/](misc) | EditorConfig, ExifTool config |
+| [opencode/](opencode) | OpenCode config |
+| [agents/](agents) | Global agent skills |
 
 ## Adding a new package
 

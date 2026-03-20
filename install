@@ -85,12 +85,19 @@ if should_run volta; then
     skip "Node already installed via Volta"
   fi
 
+  if ! volta list all 2>/dev/null | grep -q "package chrome-devtools-cli@"; then
+    info "Installing chrome-devtools-cli via Volta..."
+    volta install chrome-devtools-cli
+  else
+    skip "chrome-devtools-cli already installed via Volta"
+  fi
+
   ok "Volta + Node"
 fi
 
 # ── Stow packages ──────────────────────────────────────────────────
 if should_run stow; then
-  packages=(zsh sheldon starship git vim misc)
+  packages=(zsh sheldon starship git vim misc opencode agents)
 
   for pkg in "${packages[@]}"; do
     # Check if already correctly stowed by verifying symlinks
