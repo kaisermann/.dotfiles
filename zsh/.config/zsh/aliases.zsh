@@ -4,6 +4,12 @@
 alias mkdir='mkdir -pv'
 alias wget='wget -c'
 
+# Safer deletes
+if command -v trash &> /dev/null; then
+  alias rm='trash'
+  alias del='trash'
+fi
+
 # eza (modern ls replacement)
 if command -v eza &> /dev/null; then
   alias ls='eza --group-directories-first'

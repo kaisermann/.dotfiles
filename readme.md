@@ -34,6 +34,7 @@ Each top-level directory is a [Stow](https://www.gnu.org/software/stow/) package
 | [install](install) | Bootstrap script (idempotent, flag-based) |
 | [Brewfile](Brewfile) | Homebrew formulae and casks |
 | [macos.sh](macos.sh) | macOS `defaults write` preferences |
+| [home/](home) | Home-level docs such as `~/AGENTS.md` |
 | [zsh/](zsh) | Zsh config (`ZDOTDIR=~/.config/zsh`) |
 | [sheldon/](sheldon) | [Sheldon](https://sheldon.cli.rs/) plugin definitions |
 | [starship/](starship) | [Starship](https://starship.rs/) prompt config |
