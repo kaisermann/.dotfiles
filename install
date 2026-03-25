@@ -97,7 +97,7 @@ fi
 
 # ── Stow packages ──────────────────────────────────────────────────
 if should_run stow; then
-  packages=(home zsh sheldon starship git vim misc opencode agents)
+  packages=(zsh sheldon starship git vim misc opencode agents)
 
   for pkg in "${packages[@]}"; do
     # Check if already correctly stowed by verifying symlinks
