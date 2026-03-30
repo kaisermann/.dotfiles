@@ -1,8 +1,17 @@
 {
   "$schema": "https://opencode.ai/config.json",
+  "instructions": [
+    "/Users/kaisermann/.spoke-knowledge/instructions/main.md"
+  ],
   "plugin": [
     "@tarquinen/opencode-dcp@latest"
   ],
+  "permission": {
+    "external_directory": {
+      "~/.spoke-knowledge": "allow",
+      "~/.spoke-knowledge/**": "allow"
+    }
+  },
   "mcp": {
     "playwright": {
       "type": "local",

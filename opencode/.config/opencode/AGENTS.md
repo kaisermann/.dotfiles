@@ -5,6 +5,7 @@
 - Use `command rm` only when a permanent delete is truly intended.
 - Shell config lives under `~/.config/zsh` and is stowed from `~/.dotfiles/zsh`.
 - Global agent config is managed from `~/.dotfiles/agents` and `~/.dotfiles/opencode`.
+- `~/.spoke-knowledge` is a globally trusted external directory for OpenCode and can be read from any working directory without requesting permission.
 
 ## Worktrees
 
