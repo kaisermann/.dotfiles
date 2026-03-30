@@ -97,7 +97,7 @@ fi
 
 # ── Stow packages ──────────────────────────────────────────────────
 if should_run stow; then
-  packages=(zsh sheldon starship git vim misc opencode agents)
+  packages=(zsh sheldon starship git vim misc opencode)
 
   for pkg in "${packages[@]}"; do
     # Check if already correctly stowed by verifying symlinks
@@ -142,6 +142,19 @@ if should_run stow; then
   fi
 
   ok "Stow packages"
+
+  # ~/.agents is a direct symlink to the dotfiles agents package (not stow-managed)
+  # so CLI tools that install skills land directly in dotfiles without needing a restow
+  if [[ "$(readlink "$HOME/.agents")" == "$DOTFILES/agents/.agents" ]]; then
+    skip "~/.agents already symlinked to dotfiles"
+  else
+    if [[ -e "$HOME/.agents" ]] || [[ -L "$HOME/.agents" ]]; then
+      warn "~/.agents exists but is not pointing to dotfiles — removing and relinking"
+      rm -rf "$HOME/.agents"
+    fi
+    ln -s "$DOTFILES/agents/.agents" "$HOME/.agents"
+    ok "~/.agents symlinked to dotfiles"
+  fi
 fi
 
 # ── Sheldon plugins ────────────────────────────────────────────────
