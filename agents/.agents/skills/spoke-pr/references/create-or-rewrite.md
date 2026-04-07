@@ -18,9 +18,11 @@
 
 ### Body
 
-Write the body as prose — paragraphs and bullets, not a form. The default is the shortest body that makes review easy. Many PRs need only a title and a sentence or two. Larger PRs need more, but still prose, not boilerplate sections.
+When a PR template exists, use its section structure. Write prose within each section — do not add sub-forms, bold-keyword lists, or extra headings beyond what the template defines.
 
-What belongs in a PR body:
+When no template exists, the default is the shortest body that makes review easy. Many PRs need only a title and a sentence or two. Larger PRs need more, but still paragraphs and bullets, not boilerplate sections. Use `## Summary` only when the body is long enough to benefit from a heading.
+
+Focus the body on:
 
 - **Why** the change exists — the one thing the diff cannot show.
 - Non-obvious behavior, contract changes, or gotchas a reviewer would miss.
@@ -30,23 +32,21 @@ What belongs in a PR body:
 - Deferred work named directly, not hidden.
 - Stack or cross-repo context when the PR is part of a sequence.
 
-What does **not** belong:
+Do not:
 
-- Sections for the sake of sections. No empty `## Testing` or `## Not in scope`.
-- File-by-file narration restating the diff.
-- Anything the diff already makes obvious.
-
-Use `## Summary` when the body is long enough to benefit from a heading. Skip it when the body is short — just write.
+- Narrate the diff file-by-file or bullet-by-bullet. If the diff already shows it, the body should not repeat it.
+- Add sections with no content. No empty `## Testing` or `## Not in scope`.
+- Describe what changed without explaining why. "Exports `catchError`" is diff narration; "replaces `onError` because solid-js v2 removes it" is context.
 
 Add `Closes PRO-12345` when a Linear ticket exists.
 
 ### Calibrating length
 
-A one-line fix gets a one-line body (or none). A multi-concept refactor gets a few paragraphs explaining the shape. A cross-repo rollout gets related PR links, deploy ordering, and migration notes. Match the body to the complexity of the change — not to a template.
+A one-line fix gets a one-line body (or none). A multi-concept refactor gets a few paragraphs explaining the shape. A cross-repo rollout gets related PR links, deploy ordering, and migration notes. Match the depth of the body to the complexity of the change.
 
 ### Bad and good examples
 
-**Bad — boilerplate form on a simple change:**
+**Bad — inventing sections not in the template, on a simple change:**
 
 ```markdown
 ## Summary
@@ -55,16 +55,17 @@ Fixes the auth redirect issue when opening route links in background tabs.
 ## How to review
 Look at the auth store changes.
 
-## Testing
-Open a route link in a background tab and verify no redirect to /stops.
-
 ## Not in scope
 Other auth issues.
 ```
 
-**Good — same change, prose:**
+`## How to review` and `## Not in scope` are not in the repo template. Do not invent headings. Fill the template sections; omit the rest.
+
+**Good — same change, follows a `## Summary` / `## How to Test` template:**
 
 ```markdown
+## Summary
+
 Opening a route link in a background tab could briefly resolve auth readiness
 before the user state subscription was active, which made the app think the
 user was signed out and redirect to /stops. This change makes readiness and
@@ -72,43 +73,54 @@ current user come from the same eagerly-created auth store, so they stay in
 sync and the redirect no longer happens.
 
 Closes PRO-19688
+
+## How to Test
+
+Open a route link in a background tab. Verify the page loads without
+redirecting to /stops.
 ```
 
-**Bad — section padding on a docs PR:**
+**Bad — diff narration that adds nothing beyond what the code shows:**
 
 ```markdown
 ## Summary
-Adds AGENTS.md conventions for page bundles, engineClient, Firestore hooks,
-and i18n.
 
-## What changed
-- Added page bundle pattern section
-- Added getEngineClient section
-- Added @local/hooks section
-- Added i18n defineMessages section
+Upgrades solid-js from 1.6.2 to 1.9.12.
 
-## Testing
-N/A
+**API changes:**
+- Exports `catchError`
+- Marks `onError` as `@deprecated`
+- Removes `splitProps` and `mergeProps` re-exports
+
+**Migration:**
+- `watchSignal` migrated from `onError` to `catchError`
+- `createLoadableMemo` uses `try/catch` instead of `catchError`
+- Removed stale `@ts-expect-error` in `timeout.ts`
+
+All 154 tests pass.
 ```
 
-**Good — same change, explains the why:**
+Every bullet restates the diff. The bold-keyword sub-sections are section headers without `##` — same anti-pattern, different formatting. "All 154 tests pass" claims results without saying how to reproduce.
+
+**Good — same change, explains decisions the diff cannot show:**
 
 ```markdown
-## What
+## Summary
 
-Expands `AGENTS.md` with four additional conventions that agents (and
-engineers) often miss:
+Upgrades solid-js to 1.9.12 in `@local/reactivity` to prepare for the v2
+migration. The main change is replacing `onError` (removed in v2) with
+`catchError`.
 
-- **Page bundle pattern**: pages define their own typed bundle items and are
-  self-contained — no cross-page bundle imports
-- **`getEngineClient()` for all API calls**: all Engine API calls go through
-  the function accessor, never raw fetch
-- **`@local/hooks` over raw Firestore**: directs toward `useWatchDocument`
-  etc. instead of calling `watchDocument` from `firestore-kit` directly
-- **i18n `defineMessages()`**: all user-facing strings declared at module
-  level via `defineMessages()` from `@getcircuit/intl-tools`
+`createLoadableMemo` is the exception — it uses plain `try/catch` because
+inside a memo callback, `catchError` defers its handler and does not flush
+before the memo returns. This is a solid-js semantics constraint.
 
-These were gaps identified while reviewing recent PRs.
+`onError` is still re-exported but deprecated. Unused re-exports removed.
+
+## How to Test
+
+`yarn test` in `packages/reactivity`. Type-check with `yarn typecheck`
+covers `@local/reactivity` and its downstream consumers.
 ```
 
 ### Final pass

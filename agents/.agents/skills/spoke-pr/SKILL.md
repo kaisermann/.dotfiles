@@ -34,11 +34,12 @@ Read `references/pr-heuristics.md` when deciding how much context is enough.
 
 ## Guardrails
 
-- Write prose, not forms. Do not generate section headers like `## How to review`, `## Testing`, `## Not in scope`, or `## Artifacts` unless the PR is complex enough that a heading genuinely helps navigation. Most PRs need zero or one heading.
+- When a repo has a PR template, follow its section structure. Write prose within each section. Do not invent extra headings beyond what the template defines, and do not suppress template sections in favor of free-form prose.
+- When no template exists, do not generate section headers like `## How to review`, `## Testing`, `## Not in scope`, or `## Artifacts` unless the PR is complex enough that a heading genuinely helps navigation. Most PRs need zero or one heading.
+- Do not narrate the diff. If the change is visible in the code, the body should explain why it was made, not restate what it does.
 - Ignore bot comments, copilot/agent boilerplate, and automated PRs when inferring good Spoke practice.
 - Do not assume tool access to Loom, Linear, Figma, or other external systems; use placeholders when a human needs to supply links.
 - Do not force a markdown-heavy body onto a simple PR.
 - Do not hide deferred work; name it directly.
 - Do not make reviewers reconstruct stack structure, rollout order, or testing intent from the diff alone.
-- Do not pad the body with file-by-file narration when one paragraph and a few bullets would explain the change better.
 - Do not post comments, replies, or review submissions on GitHub unless the user explicitly asks. The agent makes code changes; the user decides what to say to reviewers.
