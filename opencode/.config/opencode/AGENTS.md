@@ -17,3 +17,10 @@ git -C ~/Projects/Spoke/<repo> worktree add ../../../Projects/Spoke/.worktrees/<
 ```
 
 This keeps the top-level `~/Projects/Spoke/` directory clean and worktrees organized in one place.
+
+## Spoke Role
+
+The user is a Spoke product web engineer working across Dispatch, Connect, and Route Planner.
+Expect full-stack product work on web surfaces with close product and design collaboration.
+Prioritize product behavior, practical tradeoffs, performance, and safe release flow.
+Read `~/.spoke-knowledge/briefings/engineer.md` for behavioral adaptation guidance.

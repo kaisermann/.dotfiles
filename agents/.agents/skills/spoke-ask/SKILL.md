@@ -1,21 +1,13 @@
 ---
 name: spoke-ask
-description: Query Spoke's internal knowledge search for historical context, prior decisions, and Twist discussion history. Load this skill when the knowledge base does not cover the answer and you need internal discussion context.
+description: Search Spoke's Twist history for decisions and discussions missing from the knowledge base. Use when curated docs lack the needed historical reasoning or context.
 ---
-
-# Spoke Ask
 
 Query Spoke's internal AI assistant to search Twist chat history, internal context, and past decisions.
 
-## Before You Query
+Use the bundled wrapper at `scripts/spoke-ask.sh`.
 
-Check auth first:
-
-```bash
-sh ~/.spoke-knowledge/scripts/validate-config.sh ask-spoke
-```
-
-If auth fails, stop and tell the user exactly what is missing. Do not keep retrying blind.
+If the wrapper fails, stop and tell the user exactly what is missing. Do not keep retrying blind.
 
 Expected token in `~/.spoke-env`:
 
@@ -30,16 +22,16 @@ The script also requires `jq` and `curl`.
 ## Usage
 
 ```bash
-# Simple query
-sh ~/.spoke-knowledge/scripts/spoke-ask.sh "How does the optimization engine handle time windows?"
+# Simple query using the bundled wrapper
+sh scripts/spoke-ask.sh "How does the optimization engine handle time windows?"
 
 # Longer prompt via stdin
-sh ~/.spoke-knowledge/scripts/spoke-ask.sh <<'EOF'
+sh scripts/spoke-ask.sh <<'EOF'
 What was the decision around migrating from Firebase Functions to backend-services for trigger processing? Include any tradeoffs discussed.
 EOF
 
 # Attach a file for analysis
-sh ~/.spoke-knowledge/scripts/spoke-ask.sh --attachment path/to/file.txt "Summarize the context around this code"
+sh scripts/spoke-ask.sh --attachment path/to/file.txt "Summarize the context around this code"
 ```
 
 ## When To Use
@@ -52,7 +44,7 @@ sh ~/.spoke-knowledge/scripts/spoke-ask.sh --attachment path/to/file.txt "Summar
 ## When Not To Use
 
 - current architecture or stable patterns already covered in the knowledge base
-- repo-specific implementation details that belong in local docs or source
+- repository-specific implementation details that belong in local docs or source
 - broad exploratory searches when you already know the right knowledge base doc
 
 ## Query Tips
@@ -64,11 +56,11 @@ sh ~/.spoke-knowledge/scripts/spoke-ask.sh --attachment path/to/file.txt "Summar
 
 ## Failure Handling
 
-- if auth is missing: run `sh ~/.spoke-knowledge/scripts/validate-config.sh ask-spoke` and report the missing token
+- if the wrapper fails before sending the query: report the missing token or tool requirement surfaced by the wrapper
 - if the result looks stale: cross-check dates and current code before treating it as ground truth
 - if you need stable, curated knowledge instead of search results: use `spoke-knowledge`
 
 ## See Also
 
-- `~/.spoke-knowledge/scopes/operations/internal-tools.md` — broader internal tooling reference
+- `~/.spoke-knowledge/content/company/_reference/internal-tools.md` — broader internal tooling reference
 - `spoke-knowledge` — curated knowledge base routing
