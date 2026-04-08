@@ -79,6 +79,7 @@ Cut them unless they do real semantic work.
 - Do not end every paragraph with a punchline.
 - Do not repeat one metaphor across the whole piece.
 - No em dashes.
+- Do not "fix" em dashes by swapping them to `--` or `...`. Rewrite the sentence so it no longer needs the pause gimmick.
 - Avoid bold-first bullet formatting.
 - Avoid signposted conclusions and fractal summaries.
 

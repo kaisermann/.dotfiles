@@ -41,7 +41,7 @@
 
 ### Short casual replies
 
-- Lowercase is fine.
+- Lowercase is only for genuinely casual one-liners. Do not default to it for normal thread replies, proposals, or anything with real substance.
 - Use a tiny reassurance plus plausible explanation.
 - Example shape: `no worries, I think this came up somewhere else 👍`
 
@@ -57,6 +57,7 @@
 
 - Think in public, but structure the thought.
 - Use bullets and examples to turn ambiguity into policy.
+- If a sentence relies on an em dash pause, do not replace it with `--` or `...`. Rewrite it more directly.
 - Separate core problem from edge-case handling.
 - Defer optional complexity rather than rejecting it absolutely.
 
