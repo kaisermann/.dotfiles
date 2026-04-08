@@ -8,7 +8,7 @@
       "skillPath": "skills/spoke-ask/SKILL.md",
       "skillFolderHash": "7c80d5e33417ef4ac4d2d794424ed37fb7f776a5",
       "installedAt": "2026-04-02T22:57:28.964Z",
-      "updatedAt": "2026-04-07T08:58:38.944Z"
+      "updatedAt": "2026-04-08T11:29:01.349Z"
     },
     "spoke-figma": {
       "source": "getcircuit/knowledge",
@@ -17,16 +17,16 @@
       "skillPath": "skills/spoke-figma/SKILL.md",
       "skillFolderHash": "2843fd7e1cfb3f65f43939b51e310b0d8492bb09",
       "installedAt": "2026-04-02T22:57:29.308Z",
-      "updatedAt": "2026-04-07T08:58:39.803Z"
+      "updatedAt": "2026-04-08T11:29:02.854Z"
     },
     "spoke-knowledge": {
       "source": "getcircuit/knowledge",
       "sourceType": "github",
       "sourceUrl": "https://github.com/getcircuit/knowledge.git",
       "skillPath": "skills/spoke-knowledge/SKILL.md",
-      "skillFolderHash": "24288a94da8808bb3f93799231b17d5802554ec7",
+      "skillFolderHash": "1698bf3f4b75380a97fbf33c8c44eb7a1b261160",
       "installedAt": "2026-04-02T22:57:29.677Z",
-      "updatedAt": "2026-04-07T14:48:49.941Z"
+      "updatedAt": "2026-04-08T11:29:03.262Z"
     },
     "spoke-linear": {
       "source": "getcircuit/knowledge",
@@ -35,43 +35,43 @@
       "skillPath": "skills/spoke-linear/SKILL.md",
       "skillFolderHash": "d4793155db68d2d88b63a58ae43336a061f6812a",
       "installedAt": "2026-04-02T23:24:41.266Z",
-      "updatedAt": "2026-04-07T08:58:41.033Z"
+      "updatedAt": "2026-04-08T11:29:04.083Z"
     },
     "spoke-ai-skill-writing": {
       "source": "getcircuit/knowledge",
       "sourceType": "github",
       "sourceUrl": "https://github.com/getcircuit/knowledge.git",
       "skillPath": "skills/spoke-ai-skill-writing/SKILL.md",
-      "skillFolderHash": "",
+      "skillFolderHash": "5bb52ae0a80ea984cf968b78492c880e9953beff",
       "installedAt": "2026-04-07T14:00:00.000Z",
-      "updatedAt": "2026-04-07T14:00:00.000Z"
+      "updatedAt": "2026-04-08T11:29:00.997Z"
     },
     "spoke-ai-instruction-writing": {
       "source": "getcircuit/knowledge",
       "sourceType": "github",
       "sourceUrl": "https://github.com/getcircuit/knowledge.git",
       "skillPath": "skills/spoke-ai-instruction-writing/SKILL.md",
-      "skillFolderHash": "",
+      "skillFolderHash": "fa951e562254e2cd6a70142f7f34ef1a7d1a7339",
       "installedAt": "2026-04-07T14:00:00.000Z",
-      "updatedAt": "2026-04-07T14:00:00.000Z"
+      "updatedAt": "2026-04-08T11:29:00.663Z"
     },
     "spoke-pr": {
       "source": "getcircuit/knowledge",
       "sourceType": "github",
       "sourceUrl": "https://github.com/getcircuit/knowledge.git",
       "skillPath": "skills/spoke-pr/SKILL.md",
-      "skillFolderHash": "20f3891f1c45dda70cd8ae08e95ba16b6287eeb3",
+      "skillFolderHash": "97396f4a0f492c803e0c214546e797dbc8e8e83b",
       "installedAt": "2026-04-06T08:23:07.191Z",
-      "updatedAt": "2026-04-07T14:48:55.481Z"
+      "updatedAt": "2026-04-08T11:29:04.494Z"
     },
     "spoke-documentation-writing": {
       "source": "getcircuit/knowledge",
       "sourceType": "github",
       "sourceUrl": "https://github.com/getcircuit/knowledge.git",
       "skillPath": "skills/spoke-documentation-writing/SKILL.md",
-      "skillFolderHash": "9d0df962d69afb53005f541dc7bd7070c28a0fb9",
+      "skillFolderHash": "d4f2167c94e71d1530daf7f70fe16590e8ab2b33",
       "installedAt": "2026-04-06T13:37:01.836Z",
-      "updatedAt": "2026-04-07T09:02:17.053Z"
+      "updatedAt": "2026-04-08T11:29:02.443Z"
     },
     "spoke-systems-investigation": {
       "source": "getcircuit/knowledge",
@@ -80,7 +80,43 @@
       "skillPath": "skills/spoke-systems-investigation/SKILL.md",
       "skillFolderHash": "6cf5ea97957ebcac5535a6e060cb284a651f1e59",
       "installedAt": "2026-04-07T08:30:03.149Z",
-      "updatedAt": "2026-04-07T14:49:00.118Z"
+      "updatedAt": "2026-04-08T11:29:04.907Z"
+    },
+    "deslop": {
+      "source": "stephenturner/skill-deslop",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/stephenturner/skill-deslop.git",
+      "skillPath": "SKILL.md",
+      "skillFolderHash": "a906154bef375d9d49ed2ad7da13b2db16f0d3d2",
+      "installedAt": "2026-04-07T16:58:29.641Z",
+      "updatedAt": "2026-04-07T16:58:29.641Z"
+    },
+    "spoke-knowledge-pr": {
+      "source": "getcircuit/knowledge",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/getcircuit/knowledge.git",
+      "skillPath": "skills/spoke-knowledge-pr/SKILL.md",
+      "skillFolderHash": "534dc01df2e7dd80a5aa58ede3a2dd47061cf7a6",
+      "installedAt": "2026-04-07T18:07:57.216Z",
+      "updatedAt": "2026-04-08T11:29:03.613Z"
+    },
+    "spoke-coding": {
+      "source": "getcircuit/knowledge",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/getcircuit/knowledge.git",
+      "skillPath": "skills/spoke-coding/SKILL.md",
+      "skillFolderHash": "cf8f44296e2f2c8157000f5d3fbc81fd67e19acf",
+      "installedAt": "2026-04-07T18:16:20.563Z",
+      "updatedAt": "2026-04-08T11:29:02.052Z"
+    },
+    "spoke-change-review": {
+      "source": "getcircuit/knowledge",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/getcircuit/knowledge.git",
+      "skillPath": "skills/spoke-change-review/SKILL.md",
+      "skillFolderHash": "9632a6b2c56942fd1c82dc13b434b209a77608ff",
+      "installedAt": "2026-04-08T08:34:13.538Z",
+      "updatedAt": "2026-04-08T11:29:01.708Z"
     }
   },
   "dismissed": {

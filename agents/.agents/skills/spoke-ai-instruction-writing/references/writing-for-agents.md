@@ -2,7 +2,18 @@
 
 Principles for writing durable, effective text that instructs AI agents. Applies to AGENTS.md files, role snippets, briefings, custom instructions, and any other persistent agent-facing content.
 
-These are patterns observed from what works and what fails when agents consume instruction text at scale. They are not universal prompting tips — they are specific to durable instruction files that persist across sessions and shape agent behavior over time.
+These patterns come from repeated instruction-writing and review work. They are not universal prompting tips; they are for durable instruction files that persist across sessions and shape agent behavior over time.
+
+## Repo Surfaces
+
+In `~/.spoke-knowledge`, the audience boundary is mostly structural.
+
+- `content/` contains durable knowledge docs read by both people and agents.
+- `skills/`, `briefings/`, and persistent instruction files such as `AGENTS.md` are agent-facing.
+
+Review `AGENTS.md`, `CLAUDE.md`, briefings, and other agent instruction files with the agent-writing rules in this package first, not with knowledge-base or human-document prose specs.
+
+Some qualities help both audiences: directness, concrete wording, and low ambiguity. Agent files are still judged first by whether they help the model choose and execute the right behavior.
 
 ## How Agents Consume Instructions
 
@@ -14,6 +25,10 @@ Instructions land in the agent's context window alongside the user's request, to
 - **Context is finite.** Every line of instruction text costs context budget. Instructions that load 500 lines of generic guidance leave less room for the actual task. Be lean.
 
 ## Framing Principles
+
+### Cut anything that does not change behavior
+
+Agent files are routing and constraint layers. Keep lines that change what the agent should do, avoid, or read next. Delete scene-setting, repeated summaries, and explanations that do not change execution.
 
 ### Constrain, don't explain
 
@@ -102,6 +117,14 @@ Explaining how TypeScript generics work, what REST APIs are, or how git branchin
 ### Narrative burying rules
 
 Wrapping actionable constraints in paragraphs of context, history, and rationale. The rule gets lost. Lead with the constraint; add context after if needed.
+
+### Padding agent files
+
+Adding summary prose that repeats the heading, examples that do not teach a new edge, or explanation that does not change routing or execution.
+
+### Reviewing agent files with human-doc rubrics
+
+Applying documentation-style or prose-authenticity checks as the main evaluation lens for agent instruction files. This often produces the wrong edits: reducing trigger clarity, removing useful repetition, or pushing instruction files toward human-friendly prose instead of agent-usable constraints.
 
 ### Mixing concerns into monoliths
 

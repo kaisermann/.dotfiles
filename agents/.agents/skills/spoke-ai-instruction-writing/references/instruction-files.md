@@ -16,6 +16,9 @@ The file should orient readers quickly: what this repo is, where to find docs, a
 - **Route shared code rules to the knowledge base.** If a coding rule also applies in sibling repos, point to the knowledge base instead of restating it locally.
 - **Repo-specific only.** If changing the content requires updating only one repo, it can live here. If it spans repositories, it belongs in the knowledge base.
 - **Retrieval-first.** Write for retrieval and scanability. Short sections, explicit headings, and direct task routing help both agents and humans.
+- **Prefer deletion over compression.** If a sentence does not route, constrain, or warn, cut it instead of rewriting it into softer filler.
+- **Use the right spec for the audience.** `AGENTS.md` is an agent-facing instruction file, not a human doc. Review it with agent-writing rules first, not knowledge-base or human-document prose rules.
+- **Keep file classes separate.** In this repo, `skills/` are agent-facing packages. Human-facing documentation belongs in `content/` or `docs/`; agent instruction files should link to those docs instead of duplicating or rebundling them.
 
 ## Required Sections
 
@@ -116,6 +119,9 @@ Rules:
 - Template sections with no content
 - Giant repo prompts that mix overview, domain lore, workflow, commands, and style rules into one hard-to-scan document
 - Headings like `Notes`, `Context`, or `Overview` that do not help a skimming reader find the right section
+- Rewriting the file to satisfy human-document style preferences while making task routing or constraint clarity worse
+- Pulling human-facing documentation into agent-only files instead of linking to the canonical doc
+- Keeping summary prose that repeats the heading or linked doc without adding a new constraint
 
 ## Layered Model
 

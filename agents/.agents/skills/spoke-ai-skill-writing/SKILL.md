@@ -3,59 +3,33 @@ name: spoke-ai-skill-writing
 description: Write and edit portable agent skill packages (SKILL.md). Use when creating, editing, or reviewing skill packages for any harness.
 ---
 
-How to write portable, self-contained skill packages for Spoke repositories and personal use.
+Write or review portable `SKILL.md` packages and their bundled agent-facing support files.
 
 Skill authoring rules and checklist: `references/skill-authoring.md`
 Harness compatibility and discovery paths: `references/harness-reference.md`
 Upstream documentation links: `references/sources.md`
 
-## Writing a New Skill
+## When to Use
 
-1. **Define the trigger surface.** What task or situation loads this skill? What does it give the agent that it lacks? Which existing skills might overlap, and how is this one distinct?
+- Creating a new skill package
+- Editing or reviewing an existing skill package
+- Checking whether a skill is routing clearly and staying portable across harnesses
 
-2. **Write the description.** Draft `description` frontmatter. Must include both function and trigger. Must stay under 250 chars. Front-load key trigger words.
+## Workflow
 
-3. **Write SKILL.md.** Structure it as:
-   - Skill dependencies (short prose near the top, only when composing other skills)
-   - When to use (if not obvious from the description)
-   - Prerequisites (what must exist)
-   - Workflow steps (the main procedure)
-   - Guardrails (constraints, common mistakes)
-
-4. **Bundle supporting files.** Move reference material, lookup tables, and validation scripts into subdirectories. Reference bundled files with relative paths from the skill root. When the skill produces structured outputs, bundle the output shape as a file rather than describing it in prose.
-
-5. **Validate.** Run through the checklist in `references/skill-authoring.md`.
-
-## Editing an Existing Skill
-
-1. Check `description` stays under 250 chars.
-2. Verify bundled file references still resolve (relative paths from skill root).
-3. Run through the checklist in `references/skill-authoring.md`.
-
-## Quick Reference
-
-```yaml
----
-name: my-skill-name
-description: {What it does + when to use it. Under 250 chars.}
----
-```
-
-```text
-my-skill/
-  SKILL.md          # routing + execution instructions
-  scripts/          # executable helpers the skill runs
-  references/       # extra docs the skill reads on demand
-  assets/           # templates, schemas, static resources
-```
-
-SKILL.md is the routing and execution layer. Keep it under ~500 lines. Longer reference material goes in `references/` or `assets/`.
+1. Read `references/skill-authoring.md`.
+2. If loader behavior or portability matters, check `references/harness-reference.md`.
+3. Keep `SKILL.md` limited to trigger, workflow, guardrails, and bundled-file routing.
+4. Move deeper detail into `references/`, `assets/`, or `scripts/`.
+5. Validate with the checklist in `references/skill-authoring.md`.
 
 ## Guardrails
 
-- Assume the model is smart. Add domain-specific constraints it lacks, not generic explanation.
-- Do not duplicate content between a skill's SKILL.md and its reference files. SKILL.md routes; references hold the detail.
-- No redundant H1 in SKILL.md that repeats the skill name. Frontmatter already names it.
-- Avoid self-referential phrasing ("this skill does...") unless the distinction is necessary.
-- Templates and handoff formats should be optional unless the workflow truly requires a fixed output shape.
+- Opening lines must make clear what the skill is useful for and when it should be applied.
+- Treat `description` as the primary routing decision. It should tell the agent what kind of task this skill owns, not just the general domain.
+- Keep `SKILL.md` short. Delete lines that do not change routing, execution, or constraints.
+- Do not duplicate content between `SKILL.md` and bundled references. `SKILL.md` routes; bundled files hold the detail.
+- Make the skill's usefulness and trigger legible near the top. Do not rely on frontmatter alone once the file is loaded.
+- In this repo, skill packages are agent-facing. If a workflow needs human-facing documentation, link to the canonical doc in `content/` or `docs/` instead of bundling a second copy inside the skill package.
 - Skills and instruction files (AGENTS.md) solve different problems. For instruction file guidance, load `spoke-ai-instruction-writing` instead.
+- Review `SKILL.md` with the skill-writing spec first. Judge routing clarity, trigger clarity, scanability, and execution usefulness before applying any human-document prose preferences.

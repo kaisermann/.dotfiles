@@ -6,6 +6,8 @@ Verified against OpenCode v1.3.13, Claude Code v2.1.88, Hermes Agent v0.6.0 plus
 
 For repo-level instruction files, see the `spoke-ai-instruction-writing` skill instead. Skills and instruction files solve different problems and should be authored separately.
 
+In `~/.spoke-knowledge`, skill packages are agent-facing packages. If a workflow depends on human-facing documentation, keep that material in `content/` or `docs/` and link to the canonical file instead of bundling a second copy inside the skill.
+
 ## Frontmatter
 
 The portable frontmatter fields:
@@ -25,9 +27,20 @@ description: What the skill does and when the agent should use it. Under 250 cha
 - **`name` max: 64 characters.** Hermes enforces this cap. Use lowercase with hyphens.
 - **`description` is the routing field.** All harnesses use it to decide when to load a skill. Front-load the key trigger words. Frame it as a task, not a category label.
 
+The best descriptions do four jobs in one sentence:
+
+1. name the skill's domain
+2. name the primary task surface
+3. state when it should load
+4. make the boundary from nearby skills legible
+
 Good: `"Cross-repository knowledge for domain rules, architecture, and conventions. Use when the task needs durable context beyond the current repository."`
 
 Bad: `"Knowledge base consumer skill."`
+
+Bad: `"Spoke engineering knowledge and conventions."`
+
+Better: `"Engineering conventions for implementation work: coding, testing, technical debt, and handoff consumption. Use when actively building or reviewing code."`
 
 ### Harness-Specific Frontmatter
 
@@ -80,11 +93,19 @@ Rules:
 `SKILL.md` is the routing and execution layer:
 
 - what the skill does
+- what the skill is useful for
 - when it should load
 - the main workflow steps
 - which bundled files to read or run
 
 Longer reference material lives in `references/` or `assets/`, not in `SKILL.md`. Keep `SKILL.md` under ~500 lines to preserve context efficiency.
+
+Treat `SKILL.md` as the shortest layer in the package. If a line does not change when the skill loads, what it does, or how it executes, cut it or move it to a bundled file.
+
+The first lines of `SKILL.md` should make two things obvious without relying only on frontmatter:
+
+- what the skill is useful for
+- when it should be applied
 
 Keep references one level deep from `SKILL.md`. Avoid chains where `SKILL.md` points to a file that points to another file that finally contains the real instructions.
 
@@ -116,17 +137,23 @@ Skills designed for reuse should follow these conventions:
 
 1. **Put both function and trigger in `description`.** Say what the skill provides and what situations should cause it to load.
 
-2. **Keep `description` under 250 characters.** Front-load key trigger words.
+2. **Name the primary task surface, not just the domain.** "Implementation work," "PR review," "runtime investigation," and "knowledge correction" route better than broad labels like "engineering" or "documentation."
 
-3. **Use unique, literal, lowercase-hyphenated names.** Prevents collision and aids slash-command matching.
+3. **Keep `description` under 250 characters.** Front-load key trigger words.
 
-4. **Keep `name` under 64 characters.**
+4. **Use unique, literal, lowercase-hyphenated names.** Prevents collision and aids slash-command matching.
 
-5. **Avoid overlap between related skills.** Each skill should have a distinct trigger surface. Two skills that serve the same domain need clearly different triggers so the model never hesitates about which to load.
+5. **Keep `name` under 64 characters.**
+
+6. **Make sibling-skill boundaries explicit in `description` when overlap is plausible.** If two skills live near each other, the description should tell the agent why this skill loads first. Broad router vs focused workflow is a useful distinction. Broad background context vs implementation-time conventions is another.
+
+7. **Avoid overlap between related skills.** Each skill should have a distinct trigger surface. Two skills that serve the same domain need clearly different triggers so the model never hesitates about which to load.
 
 ### Structure and Portability
 
 6. **Use progressive disclosure.** `SKILL.md` is the routing layer. Point to bundled `references/`, `assets/`, or `scripts/` for detail.
+
+6a. **Prefer deletion over summary.** Do not pad `SKILL.md` with scene-setting, repeated summaries, or examples that do not change execution.
 
 7. **Use relative paths from the skill root.** `scripts/task.sh`, not absolute home-directory paths.
 
@@ -156,6 +183,8 @@ Skills designed for reuse should follow these conventions:
 
 19. **Keep validator details out of the agent path.** In `SKILL.md`, route the agent through the task script or core workflow. Mention standalone validators only when the skill genuinely needs a manual diagnostic command.
 
+20. **Review `SKILL.md` with the skill-writing spec first.** Evaluate routing clarity, trigger clarity, scanability, and execution usefulness before applying any human-document prose preferences.
+
 ## Validation Checklist
 
 Run through this after writing or editing a skill.
@@ -173,14 +202,18 @@ Run through this after writing or editing a skill.
 ### Description
 
 - [ ] `description` says both what the skill does and when to use it
+- [ ] `description` names the primary task surface, not just the broad domain
 - [ ] `description` stays under 250 characters
 - [ ] Key trigger words are front-loaded in the description
+- [ ] If adjacent skills exist, the description makes the boundary legible
 - [ ] No overlap with other skills' trigger surfaces
 
 ### SKILL.md Quality
 
 - [ ] SKILL.md stays under ~500 lines
 - [ ] Action-oriented: the agent executes this, not studies it
+- [ ] Every line in `SKILL.md` changes routing, execution, or a guardrail
+- [ ] Opening lines make clear what the skill is useful for and when it should be applied
 - [ ] No redundant H1 that just repeats the skill name
 - [ ] If the skill composes other skills, that dependency is named near the top in short prose
 - [ ] If dependency prose is present, it lists only skill-to-skill dependencies
@@ -194,6 +227,8 @@ Run through this after writing or editing a skill.
 - [ ] Risky workflows use exact commands and validation loops
 - [ ] Assumes the model is smart: adds domain constraints, not generic explanation
 - [ ] Templates or handoff formats are optional unless the workflow truly requires a fixed output shape
+- [ ] If human-facing documentation is needed, the skill links to the canonical doc in `content/` or `docs/` instead of bundling a duplicate inside the package
+- [ ] `SKILL.md` was reviewed as agent-facing routing/execution text, not primarily as human-facing prose
 
 ### Naming and Portability
 

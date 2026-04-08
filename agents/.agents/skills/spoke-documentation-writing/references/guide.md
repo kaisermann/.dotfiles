@@ -55,12 +55,18 @@ Use a `## Contents` section with markdown links to headings. Keep it flat — on
 
 ## Frontmatter
 
-Use the frontmatter schema required by the documentation system you are editing.
+Every doc should have a YAML block with at minimum:
+
+```yaml
+---
+description: One sentence saying what the doc covers and when to load it.
+---
+```
 
 Rules:
-- Keep frontmatter minimal and retrieval-oriented
+- `description` should stand alone in listings and previews
+- `description` should be retrieval-oriented and include the loading trigger when that helps discovery
 - Do not add metadata unless it changes retrieval behavior. Path, title, and git history already cover identity and provenance.
-- When a repository or doc set defines specific frontmatter fields, follow that local spec rather than inventing a general schema here.
 
 ## Writing Rules
 
@@ -81,10 +87,10 @@ Good: "ArgoCD at `https://argocd.example.com/`"
 
 If an official tool or process exists, name it directly.
 
-### Make metadata retrieval-oriented
+### Make frontmatter retrieval-oriented
 
-Bad: vague metadata that only restates the title or category
-Good: metadata that helps a reader or agent decide whether the doc is relevant in listings, previews, or routing flows
+Bad: "Architecture doc"
+Good: "Cross-repository Firestore rules and construction constraints. Use when writing Firestore access code or debugging behavior that spans repositories."
 
 ### State consequences and enforcement, not just guidelines
 
@@ -168,6 +174,16 @@ No value-proposition copy, capability lists, launch narratives, or positioning l
 ### Cut redundancy
 
 If something is already well-documented elsewhere, point to it instead of duplicating.
+
+### Use markdown links for cross-references
+
+When referencing other docs, repositories, or paths, use markdown links with a human-readable label. The path stays visible in the href for agents; the label makes rendered views useful for humans.
+
+```markdown
+See [Firestore Patterns](/content/engineering/_reference/firestore-patterns.md) for construction rules.
+```
+
+Bare backtick paths are harder to read in rendered views and do not benefit agents (the path is already in the href).
 
 ### Prefer concrete process over abstract placeholders
 
@@ -257,7 +273,7 @@ These patterns are strong signals of AI-generated text. They appear frequently i
 ## Checklist Before Committing
 
 - [ ] Frontmatter is minimal and retrieval-oriented
-- [ ] Any required metadata is minimal and improves retrieval
+- [ ] `description` says what the doc gives you and includes a retrieval trigger when useful
 - [ ] TOC present if doc is over ~60 lines
 - [ ] No marketing prose, no timeline narratives
 - [ ] No research-memo tone or project-by-project narration
@@ -266,4 +282,5 @@ These patterns are strong signals of AI-generated text. They appear frequently i
 - [ ] Examples are clearly representative and do not silently stand in for universal rules
 - [ ] No content duplicated from another doc
 - [ ] No AI prose anti-patterns (binary contrasts, dramatic fragments, bold-first bullets, throat-clearing, filler adverbs, false agency, em dashes)
+- [ ] Cross-references use markdown links with human-readable labels, not bare backtick paths
 - [ ] Cross-references and URLs verified to exist

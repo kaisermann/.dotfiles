@@ -1,6 +1,6 @@
 ---
 name: spoke-knowledge
-description: Shared Spoke context across company, business, design, and engineering. Use when any task may benefit from Spoke-specific terminology, product rules, operating norms, architecture patterns, or conventions.
+description: Broad Spoke context across company, business, design, and engineering. Use when a task needs shared background knowledge, terminology, product rules, operating norms, or architecture context beyond the current repository.
 ---
 
 The Spoke Knowledge Base lives at `~/.spoke-knowledge/` and contains durable Spoke context organized into subject areas.
@@ -61,6 +61,7 @@ Pick the first match. Paths are relative to `content/` unless the shortcut expli
 - Long-running workflows, retries, or operation models?: `engineering/_explanation/modeling-long-running-work.md`
 - Webhook event delivery or payload contracts?: `engineering/_reference/webhook-event-architecture.md`
 - Test philosophy or test structure?: `engineering/_reference/testing-guidelines.md`
+- TODO or FIXME comments, deferred cleanup, or technical-debt follow-up in code?: `engineering/_reference/technical-debt-approach.md`
 - Route or plan optimization failure investigation?: `engineering/_how-to/optimization-investigation.md`
 - Code review expectations, PR sizing, or reviewer behavior?: `engineering/_reference/code-review-practices.md`
 - Deploy surfaces, release paths, or how code reaches production?: `engineering/_reference/deploy-overview.md`
@@ -84,7 +85,6 @@ Pick the first match. Paths are relative to `content/` unless the shortcut expli
 - Need role definitions or role shapes across Spoke functions?: `company/roles/_index.md`
 - How Spoke teams work, async norms, ownership, or operating conventions?: `company/_reference/how-we-work.md`
 - Project execution, states, or shared context?: `company/_reference/projects-framework.md`
-- Which official tool for a job or workflow?: `company/_reference/tooling.md`
 - Linear ticket format, issue structure, or label conventions?: `company/_reference/linear-ticket-conventions.md`
 - Localization flow, translations, or Crowdin?: `company/_reference/localization-workflow.md`
 - Support escalation or launch readiness?: `company/support/_index.md`
