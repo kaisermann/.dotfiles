@@ -19,7 +19,7 @@ Use this to decide how much PR context is enough.
 
 ## Common high-value context
 
-These are things worth including in the body. Place them in the appropriate template section when one exists, or inline when writing free-form.
+These are things worth mentioning inline, not as dedicated sections:
 
 - why the change exists
 - the main non-obvious behavior or contract change

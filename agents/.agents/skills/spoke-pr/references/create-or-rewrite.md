@@ -19,11 +19,9 @@
 
 ### Body
 
-When a PR template exists, use its section structure. Write prose within each section. Do not add sub-forms, bold-keyword lists, or extra headings beyond what the template defines.
+Write the body as prose: paragraphs and bullets, not a form. The default is the shortest body that makes review easy. Many PRs need only a title and a sentence or two. Larger PRs need more, but still prose, not boilerplate sections.
 
-When no template exists, write the body as prose: paragraphs and bullets, not a form. The default is the shortest body that makes review easy. Many PRs need only a title and a sentence or two. Larger PRs need more, but still prose, not boilerplate sections. Use `## Summary` only when the body is long enough to benefit from a heading.
-
-Focus the body on:
+What belongs in a PR body:
 
 - Why the change exists. This is the one thing the diff cannot show.
 - Non-obvious behavior, contract changes, or gotchas a reviewer would miss.
@@ -34,16 +32,17 @@ Focus the body on:
 - Stack or cross-repo context when the PR is part of a sequence.
 - Why a broader refactor was worth it, when the PR is mechanically larger than the feature it unlocks.
 
-Do not:
+What does **not** belong:
 
-- Add sections for the sake of sections. No empty `## Testing` or `## Not in scope`.
-- Narrate the diff file-by-file or bullet-by-bullet. If the diff already shows it, the body should not repeat it.
-- Describe what changed without explaining why. "Exports `catchError`" is diff narration; "replaces `onError` because solid-js v2 removes it" is context.
+- Sections for the sake of sections. No empty `## Testing` or `## Not in scope`.
+- File-by-file narration restating the diff.
 - Anything the diff already makes obvious.
 - Routine test commands that CI already runs. Only include a test command when the approach is non-obvious or the exact invocation matters for review.
-- Bare pass/fail status claims like "All tests pass" or "Checks pass." A PR being opened implies it works. If something does not pass, or the validation approach is non-obvious, explain that instead.
+- Bare pass/fail status claims like "All tests pass" or "Checks pass." A PR being opened implies it works. If something *doesn't* pass, or the validation approach is non-obvious, explain that instead.
 - Agent session artifacts: environment limitations, missing local dependencies, tools that could not run, worktree state, or verification caveats that exist only because of how the agent executed. The PR describes the change, not the agent's working conditions.
 - One-line summaries for multi-concept refactors that still leave the reviewer to infer the actual shape of the change.
+
+Use `## Summary` when the body is long enough to benefit from a heading. Skip it when the body is short. Just write.
 
 Add `Closes PRO-12345` when a Linear ticket exists.
 
@@ -83,6 +82,9 @@ Fixes the auth redirect issue when opening route links in background tabs.
 ## How to review
 Look at the auth store changes.
 
+## Testing
+Open a route link in a background tab and verify no redirect to /stops.
+
 ## Not in scope
 Other auth issues.
 ```
@@ -90,8 +92,6 @@ Other auth issues.
 **Good: same change, prose**
 
 ```markdown
-## Summary
-
 Opening a route link in a background tab could briefly resolve auth readiness
 before the user state subscription was active, which made the app think the
 user was signed out and redirect to /stops. This change makes readiness and
@@ -99,11 +99,43 @@ current user come from the same eagerly-created auth store, so they stay in
 sync and the redirect no longer happens.
 
 Closes PRO-19688
+```
 
-## How to Test
+**Bad: section padding on a docs PR**
 
-Open a route link in a background tab. Verify the page loads without
-redirecting to /stops.
+```markdown
+## Summary
+Adds AGENTS.md conventions for page bundles, engineClient, Firestore hooks,
+and i18n.
+
+## What changed
+- Added page bundle pattern section
+- Added getEngineClient section
+- Added @local/hooks section
+- Added i18n defineMessages section
+
+## Testing
+N/A
+```
+
+**Good: same change, explains the why**
+
+```markdown
+## What
+
+Expands `AGENTS.md` with four additional conventions that agents (and
+engineers) often miss:
+
+- Page bundle pattern: pages define their own typed bundle items and are
+  self-contained, with no cross-page bundle imports
+- `getEngineClient()` for all API calls: all Engine API calls go through the
+  function accessor, never raw fetch
+- `@local/hooks` over raw Firestore: directs toward `useWatchDocument` etc.
+  instead of calling `watchDocument` from `firestore-kit` directly
+- i18n `defineMessages()`: all user-facing strings declared at module level via
+  `defineMessages()` from `@getcircuit/intl-tools`
+
+These were gaps identified while reviewing recent PRs.
 ```
 
 **Bad: technically correct but under-explained large refactor**

@@ -60,9 +60,9 @@
       "sourceType": "github",
       "sourceUrl": "https://github.com/getcircuit/knowledge.git",
       "skillPath": "skills/spoke-pr/SKILL.md",
-      "skillFolderHash": "97396f4a0f492c803e0c214546e797dbc8e8e83b",
+      "skillFolderHash": "58988d56cab3dfc1e3026d0d039913e08b0b9573",
       "installedAt": "2026-04-06T08:23:07.191Z",
-      "updatedAt": "2026-04-08T11:29:04.494Z"
+      "updatedAt": "2026-04-08T12:16:57.536Z"
     },
     "spoke-documentation-writing": {
       "source": "getcircuit/knowledge",
