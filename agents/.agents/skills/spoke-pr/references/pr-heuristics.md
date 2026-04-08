@@ -6,6 +6,7 @@ Use this to decide how much PR context is enough.
 
 - the PR spans multiple concepts
 - the change is risky, subtle, or hard to test from the diff alone
+- the fix is mechanically larger than the feature request because the real change is a data-flow or architecture shift
 - the PR is part of a stack or cross-repo rollout
 - the reviewer needs artifacts such as screenshots, Looms, benchmarks, or decision docs
 - work is intentionally deferred and that affects how the diff should be read
@@ -14,13 +15,15 @@ Use this to decide how much PR context is enough.
 
 - the change is small and the diff already tells the story
 - the only useful additions are the why, one non-obvious detail, and a quick testing note
+- shortening it further would remove the map a reviewer needs to understand a broader refactor
 
 ## Common high-value context
 
-These are things worth including in the body. Place them in the appropriate template section when one exists, or inline when writing free-form:
+These are things worth including in the body. Place them in the appropriate template section when one exists, or inline when writing free-form.
 
 - why the change exists
 - the main non-obvious behavior or contract change
+- the constraint that forced the chosen shape, when that is not obvious from the diff
 - how to test it, when non-obvious
 - what is intentionally deferred
 - what depends on this PR or was already reviewed before it
