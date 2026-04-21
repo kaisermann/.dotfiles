@@ -9,7 +9,7 @@ Use `spoke-knowledge` for broader company, product, design, or architecture cont
 
 ## Workflow
 
-1. Start with the repository's `AGENTS.md`, nearby code, and local `docs/`. Use this skill for shared engineering defaults, not repo-local implementation detail.
+1. Start with the repository's `AGENTS.md`, nearby code, and local `docs/`. Use this skill for cross-repo engineering defaults, not repo-local implementation detail.
 2. Match the task to a shortcut below. If none match, start from `content/engineering/_index.md` or `content/engineering/web/_index.md`.
 3. Read only the docs needed for the current implementation slice.
 
@@ -26,8 +26,6 @@ Use `spoke-knowledge` for broader company, product, design, or architecture cont
 ### Coding And Validation
 
 - Test structure, explicit inputs, or mock boundaries?: `content/engineering/_reference/testing-guidelines.md`
-- Error handling, error codes, or structured error responses?: `content/engineering/_reference/error-handling-patterns.md`
-- Logging, telemetry, product tracking, or instrumentation metadata?: `content/engineering/_reference/logging-and-instrumentation-guidelines.md`
 - TODO or FIXME comments, deferred cleanup, or technical-debt follow-up in code?: `content/engineering/_reference/technical-debt-approach.md`
 - Reviewability, PR size, or author and reviewer expectations?: `content/engineering/_reference/code-review-practices.md`
 - Recurring pitfalls, environment gotchas, or hidden failure modes?: `content/engineering/_reference/common-engineering-gotchas.md`
@@ -55,8 +53,7 @@ Use `spoke-knowledge` for broader company, product, design, or architecture cont
 
 ## Guardrails
 
-- Shared knowledge-base docs are defaults for general engineering guidance. Repository `AGENTS.md`, local docs, and established code patterns win for repo-specific implementation.
-- During refactors, pay attention to existing comments. Keep, move, or adapt comments that still apply after extraction, renaming, or file moves instead of dropping them as incidental text.
+- Shared knowledge-base docs are defaults for cross-repo work. Repository `AGENTS.md`, local docs, and established code patterns win for repo-specific implementation.
 - Do not project web conventions onto iOS, Android, backend, or infra work without repo-local evidence.
 - Do not pull in `content/engineering/infra/` docs unless the task is operational or runtime-debugging.
 - Pull Linear, Figma, PR, or historical context only when the task actually needs those workflows.

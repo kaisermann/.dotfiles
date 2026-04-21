@@ -71,16 +71,11 @@ Check for pattern violations and quality issues. Load `spoke-knowledge` to look 
 - Is the implementation appropriately simple, or does it add complexity that the problem does not require?
 - Does it follow the file's existing style and the repo's conventions, or does it introduce a new pattern?
 
-**High-frequency misses** (common patterns that reviewers flag):
+**Common misses:**
 
-- Firestore queries that would benefit from projection or bounds (check the decision framework in `firestore-patterns.md` § Query Performance Patterns)
-- App code importing raw Firestore SDK when `firestore-kit` already wraps the needed API (some raw imports are valid; check whether a wrapper exists first)
-- Error responses with message strings but no stable error code
-- Page-level data fetched outside the page-bundle pattern in web-apps
-- Tests using hardcoded doc IDs or hand-built fixtures when `buildTest*()` factories and ref selectors exist for that model
-- New Firestore models without matching ref selectors or schema factories
 - Missing error handling on paths that can fail in production
-- Test coverage gaps for changed behavior
+- Hardcoded values that should come from configuration or constants
+- Test coverage gaps for the changed behavior
 - Stale comments or documentation that the change invalidates
 
 ### 5. Merge Readiness
