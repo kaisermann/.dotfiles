@@ -1,48 +1,49 @@
 ---
 name: spoke-pr
-description: Write, update, review, and address feedback on Spoke pull requests. Use when drafting a PR, refreshing stale PR context, reviewing for merge risk, or working through review comments and requested changes.
+description: Pull request workflow for Spoke. Use before creating or editing a PR, and for drafting, rewriting, reviewing for merge risk, or addressing review feedback.
 ---
-
-Use this for PR authoring, review, and feedback tasks that need Spoke-specific guidance.
 
 Use `spoke-knowledge`, `spoke-linear`, `spoke-figma`, or `spoke-ask` only when the task needs them.
 
-## When To Use
-
-- writing a new PR title or body
-- rewriting a PR after the branch changed
-- reviewing a PR for merge risk, reviewability, or missing context
-- addressing review comments, requested changes, or questions on a PR
-
 ## Modes
 
-- Create or rewrite a PR: read `references/create-or-rewrite.md`
-- Update an existing PR after changes: read `references/update.md`
-- Review a PR: read `references/review.md`
-- Address review feedback: read `references/address-feedback.md`
+### Create or rewrite a PR
 
-Read `references/pr-heuristics.md` when deciding how much context is enough.
+**For non-engineer roles (designers, PMs, support):** Before creating or rewriting a PR, load and run `spoke-change-review` first. If it reports any MUST-level findings, resolve them before proceeding. This catches scope drift, convention violations, and architectural issues before consuming reviewer time.
 
-## Shared defaults
+Read `references/create-or-rewrite.md`. Read `references/pr-heuristics.md` before drafting when deciding what PR shape fits the change and how much context is enough. Read `references/examples.md` only when you need real PR examples to calibrate tone or structure.
 
+For large refactors, verify the old model in the target branch and lead with the reviewer-relevant constraint, not project history.
+
+### Update an existing PR
+
+- Refresh only the parts that became stale.
+- If the change materially altered scope, testing, or rollout, update the PR body before asking for more review.
+- If the branch changed the reviewer story, refresh the body shape too, not just the facts.
+- After review has started, prefer additive commits over history rewrites that make re-review harder.
+- For substantial rewrites, move the PR back to draft.
+- If new commits changed what the reviewer should focus on, leave a short delta comment.
+
+### Review a PR
+
+- Read the title and body before diving into the diff.
+- If a large PR lacks context, ask for it early.
+- Review for: correctness and regressions, scope and reviewability, testing quality, rollout or migration safety, cross-repo coordination and merge order, design fidelity for UI work, missing context that blocks confident review.
+- Separate blockers from suggestions. Block on correctness, important risk, fragility, or not-being-ready-to-merge.
+- Do not turn taste or minor nits into blockers.
+- Say what you did not review when coverage was partial.
+
+### Address review feedback
+
+Read `references/address-feedback.md`.
+
+## Cross-mode defaults
+
+- Spoke is async-first. A PR body is often the only explanation a reviewer gets. Treat it as a message, not a form to fill out.
 - PRs start as draft. The developer moves to ready for review manually.
 - Add `Closes PRO-12345` in the PR body for Linear integration when a ticket exists.
-- Keep titles and bodies concise and objective.
-- If the diff already tells the story, keep the body short.
-- Lead with the problem, constraint, or reviewer-relevant context that the diff cannot show.
-- Use placeholders for links or artifacts the agent cannot fetch.
 - Use the repository's docs, `AGENTS.md`, and PR template for local requirements.
-
-## Guardrails
-
-- Write prose, not forms. Do not generate section headers like `## How to review`, `## Testing`, `## Not in scope`, or `## Artifacts` unless the PR is complex enough that a heading genuinely helps navigation. Most PRs need zero or one heading.
-- Prefer a direct opening over stock framing like `This PR`, `The goal of this PR`, or `Key changes include`.
+- Use placeholders for links or artifacts the agent cannot fetch.
+- Do not assume tool access to Loom, Linear, Figma, or other external systems.
 - Ignore bot comments, copilot/agent boilerplate, and automated PRs when inferring good Spoke practice.
-- Do not assume tool access to Loom, Linear, Figma, or other external systems; use placeholders when a human needs to supply links.
-- Do not force a markdown-heavy body onto a simple PR.
-- Do not compress a non-trivial refactor into a one-line body when reviewers need the shape of the change.
-- Do not hide deferred work; name it directly.
-- Do not make reviewers reconstruct stack structure, rollout order, or testing intent from the diff alone.
-- Do not pad the body with file-by-file narration when one paragraph and a few bullets would explain the change better.
-- Avoid common AI tells in PR prose: binary contrasts, rhetorical-question setups, dramatic fragments, filler transitions, bold-first bullets, and em dashes.
 - Do not post comments, replies, or review submissions on GitHub unless the user explicitly asks. The agent makes code changes; the user decides what to say to reviewers.
