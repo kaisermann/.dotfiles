@@ -1,7 +1,11 @@
 {
   "$schema": "https://opencode.ai/config.json",
   "instructions": [],
-  "plugin": ["@tarquinen/opencode-dcp@latest"],
+  "plugin": [
+    "opencode-beads@0.6.0",
+    "@tarquinen/opencode-dcp@latest",
+    "@warp-dot-dev/opencode-warp"
+  ],
   "permission": {
     "external_directory": {
       "~/.spoke-knowledge": "allow",
@@ -27,13 +31,13 @@
   },
   "agent": {
     "general": {
-      "model": "github-copilot/claude-sonnet-4.6",
+      "model": "github-copilot/gpt-5.4",
     },
     "explore": {
-      "model": "github-copilot/claude-sonnet-4.6",
+      "model": "github-copilot/gpt-5.4",
     },
     "compaction": {
-      "model": "github-copilot/claude-sonnet-4.6",
+      "model": "github-copilot/gpt-5.4",
     },
   },
 }

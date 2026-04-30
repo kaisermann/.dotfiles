@@ -55,6 +55,7 @@
   bora = !gh pr create --web
   pei = bora
   pushnv = push --no-verify
+  dft = -c core.pager=difft diff
 
 [pager]
   diff = delta
@@ -97,6 +98,9 @@
 
 [difftool]
   prompt = false
+
+[difftool "difftastic"]
+  cmd = difft "$LOCAL" "$REMOTE"
 
 [mergetool]
   prompt = false
